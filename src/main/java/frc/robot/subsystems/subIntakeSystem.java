@@ -22,13 +22,12 @@ public class subIntakeSystem extends SubsystemBase {
 
   private void SetMotorSettings() {
     intakeMotor.restoreFactoryDefaults();
-    //intakeMotor.setSmartCurrentLimit(40);
     intakeMotor.setInverted(IntakeSystem.IntakeInverted);
     intakeMotor.setIdleMode(IdleMode.kCoast);
     intakeMotor.burnFlash();
   }
 
-  public void intakeTeleOp(XboxController driver){
+  public void TeleOp(XboxController driver){
     if(driver.getLeftTriggerAxis() > 0.1){
       runIntake();
     }

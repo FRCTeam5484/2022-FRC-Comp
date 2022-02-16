@@ -130,10 +130,6 @@ public class subDriveSystem extends SubsystemBase {
     return Math.IEEEremainder(gyro.getAngle(), 360) * (DriveSystem.GyroReversed ? -1.0 : 1.0);
   }
 
-  public void setGyroZeroYaw(){
-    gyro.zeroYaw();
-  }
-
   //Encoder Methods
   public void ResetEncoders(){
     left1Encoder.setPosition(0);
