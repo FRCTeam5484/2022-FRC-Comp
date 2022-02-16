@@ -1,0 +1,81 @@
+package frc.robot.subsystems;
+
+import frc.robot.Constants.*;
+import com.revrobotics.CANSparkMax;
+import com.revrobotics.RelativeEncoder;
+import com.revrobotics.SparkMaxPIDController;
+import com.revrobotics.CANSparkMax.IdleMode;
+import com.revrobotics.CANSparkMaxLowLevel.MotorType;
+
+import edu.wpi.first.wpilibj.XboxController;
+import edu.wpi.first.wpilibj2.command.SubsystemBase;
+
+public class subShootSystem extends SubsystemBase {
+  private CANSparkMax shooterMotor = new CANSparkMax(ShooterSystem.ShooterId, MotorType.kBrushless);
+  private SparkMaxPIDController pidController = shooterMotor.getPIDController();
+  private RelativeEncoder encoder = shooterMotor.getEncoder();
+  public double kP, kI, kD, kIz, kFF, kMaxOutput, kMinOutput, maxRPM;
+
+  public subShootSystem() {
+    SetMotorSettings();
+  }
+
+  @Override
+  public void periodic() { }
+
+  private void SetMotorSettings(){
+    shooterMotor.restoreFactoryDefaults();
+    //shooterMotor.setSmartCurrentLimit(38);
+    shooterMotor.setInverted(ShooterSystem.ShooterInverted);
+    shooterMotor.setIdleMode(IdleMode.kCoast);
+    shooterMotor.burnFlash();
+  }
+
+  public void TeleOp(XboxController driver){
+    shooterMotor.set(driver.getRightY());
+  }
+
+  //#region Shooter Methods
+  public void setShooterSpeed(double speed){
+    shooterMotor.set(speed);
+  }
+
+  public void stopShooter(){
+    shooterMotor.stopMotor();
+  }
+
+  public double getPowerValue(){
+    return shooterMotor.get();
+  }
+
+  public double getVelocity(){
+    return encoder.getVelocity();
+  }
+
+  public void setShooterToHighGoal(){
+    /*pidController.setP(0.001);
+    pidController.setI(0);
+    pidController.setD(0);
+    pidController.setIZone(0);
+    pidController.setFF(0);
+    pidController.setOutputRange(0, 0.6);
+    pidController.setReference(ShooterSystem.ShooterHighGoalVelocity, CANSparkMax.ControlType.kVelocity);
+    */
+    //shooterMotor.set(.5);
+    shooterMotor.setVoltage(6.0);
+  }
+
+  public void setShooterToLowGoal(){
+    /*
+    pidController.setP(0.001);
+    pidController.setI(0);
+    pidController.setD(0);
+    pidController.setIZone(0);
+    pidController.setFF(0);
+    pidController.setOutputRange(0, 0.6);
+    pidController.setReference(ShooterSystem.ShooterLowGoalVelocity, CANSparkMax.ControlType.kVelocity);
+    */
+    shooterMotor.setVoltage(3.5);
+  }
+  //#endregion
+}
