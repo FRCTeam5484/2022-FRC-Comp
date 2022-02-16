@@ -94,59 +94,11 @@ public class subLimeLight extends SubsystemBase {
     return tv == 1 ? true : false;
   }
 
-  public enum Pipeline {
-    Targeting,
-    Drive
+  public void setToAutoTargetMode(){
+    pipelineEntry.setNumber(0);
   }
 
-  public enum LedMode {
-    UsePipeline,
-    Off,
-    Blink,
-    On
-  }
-
-  public enum CamMode {
-    VisionProcessing,
-    DriverCamera
-  }
-
-  public void setPipeline(Pipeline value){
-    switch(value){
-      case Targeting:
-        pipelineEntry.setNumber(0);
-        break;
-      case Drive:
-        pipelineEntry.setNumber(1);
-        break;
-    }
-  }
-
-  public void setLedMode(LedMode value){
-    switch(value){
-      case UsePipeline:
-        ledModeEntry.setNumber(0);
-        break;
-      case Off:
-        ledModeEntry.setNumber(1);
-        break;
-      case Blink:
-        ledModeEntry.setNumber(2);
-        break;
-      case On:
-        ledModeEntry.setNumber(3);
-        break;
-    }
-  }
-
-  public void setCamMode(CamMode value){
-    switch(value){
-      case VisionProcessing:
-        camModeEntry.setNumber(0);
-        break;
-      case DriverCamera:
-        camModeEntry.setNumber(1);
-        break;
-    }
+  public void setToDriverMode(){
+    pipelineEntry.setNumber(1);
   }
 }
