@@ -94,7 +94,8 @@ public class RobotContainer {
       .whenPressed(new InstantCommand(() -> air.toggleIntake(), air));
     
     driverOne_RightBumper
-      .whenPressed(new InstantCommand(() -> air.toggleClimb(), air));    
+      .whenPressed(new InstantCommand(() -> air.raiseClimb(), air))
+      .whenReleased(new InstantCommand(() -> air.lowerClimb(), air));
 
     driverOne_LeftTrigger
       .whenActive(new cmdIntake_Lower(air, intake))
@@ -110,13 +111,13 @@ public class RobotContainer {
     //shoot.setDefaultCommand(new RunCommand(() -> shoot.TeleOp(driverTwo), shoot));
 
     driverTwo_Y
-      .whenPressed(new cmdShooter_HighGoalSpeed(shoot))  
-      //.whenPressed(new RunCommand(() -> shoot.setShooterSpeed(0.55), shoot))
+      //.whenPressed(new cmdShooter_HighGoalSpeed(shoot))  
+      .whenPressed(new RunCommand(() -> shoot.setShooterToHighGoal(), shoot))
       .whenReleased(new InstantCommand(() -> shoot.stopShooter(), shoot));
     
     driverTwo_A
-      .whenPressed(new cmdShooter_LowGoalSpeed(shoot))
-      //.whenPressed(new RunCommand(() -> shoot.setShooterSpeed(0.3), shoot))
+      //.whenPressed(new cmdShooter_LowGoalSpeed(shoot))
+      .whenPressed(new RunCommand(() -> shoot.setShooterToLowGoal(), shoot))
       .whenReleased(new InstantCommand(() -> shoot.stopShooter(), shoot));
 
     driverTwo_RightBumper

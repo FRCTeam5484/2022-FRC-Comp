@@ -42,11 +42,11 @@ public class subPneumaticSystem extends SubsystemBase {
     intakeSolenoid.toggle();
   }
 
-  public void setClimbClosed(){
+  public void raiseClimb(){
     climbSolenoid.set(true);
   }
 
-  public void setClimbOpen(){
+  public void lowerClimb(){
     climbSolenoid.set(false);
   }
 
