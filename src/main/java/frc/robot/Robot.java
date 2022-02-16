@@ -45,8 +45,8 @@ public class Robot extends TimedRobot {
     SmartDashboard.putNumber("Shooter Power", m_robotContainer.shoot.getPowerValue());
     SmartDashboard.putData("Shooter Command", m_robotContainer.shoot);
 
-    SmartDashboard.putString("LimeLight Video", "http://10.54.84.11:5800");
-    SmartDashboard.putString("LimeLight Config", "http://10.54.84.11:5801");
+    SmartDashboard.putString("LimeLight Video", "http://10.54.84.150:5800");
+    SmartDashboard.putString("LimeLight Config", "http://10.54.84.150:5801");
   }
 
   @Override
