@@ -11,7 +11,7 @@ import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 public class subShootSystem extends SubsystemBase {
-  private CANSparkMax shooterMotor = new CANSparkMax(ShooterSystem.ShooterId, MotorType.kBrushless);
+  public CANSparkMax shooterMotor = new CANSparkMax(ShooterSystem.ShooterId, MotorType.kBrushless);
   private SparkMaxPIDController pidController = shooterMotor.getPIDController();
   private RelativeEncoder encoder = shooterMotor.getEncoder();
   public double kP, kI, kD, kIz, kFF, kMaxOutput, kMinOutput, maxRPM;

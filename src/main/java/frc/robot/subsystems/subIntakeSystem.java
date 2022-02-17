@@ -10,7 +10,7 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants.*;
 
 public class subIntakeSystem extends SubsystemBase {
-  private CANSparkMax intakeMotor = new CANSparkMax(IntakeSystem.IntakeId, MotorType.kBrushless);
+  public CANSparkMax intakeMotor = new CANSparkMax(IntakeSystem.IntakeId, MotorType.kBrushless);
   private RelativeEncoder intakeEncoder = intakeMotor.getEncoder();
 
   public subIntakeSystem() {

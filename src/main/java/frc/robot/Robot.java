@@ -1,6 +1,12 @@
 package frc.robot;
 
+import java.util.Map;
+
 import edu.wpi.first.wpilibj.TimedRobot;
+import edu.wpi.first.wpilibj.XboxController;
+import edu.wpi.first.wpilibj.shuffleboard.BuiltInWidgets;
+import edu.wpi.first.wpilibj.shuffleboard.Shuffleboard;
+import edu.wpi.first.wpilibj.shuffleboard.ShuffleboardTab;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
@@ -91,5 +97,90 @@ public class Robot extends TimedRobot {
   }
 
   @Override
-  public void testPeriodic() {}
+  public void testPeriodic() {
+    ShuffleboardTab testingTab = Shuffleboard.getTab("Testing");
+    Shuffleboard.selectTab("Testing");
+    // Controller
+    XboxController testController = m_robotContainer.driverOne;
+    if(testController.getXButton()){
+      m_robotContainer.drive.leftDriveMaster.set(-testController.getLeftY());
+      testingTab.add("Motor", "Left Drive Master (1)");
+      testingTab.add("Power", m_robotContainer.drive.leftDriveMaster.get());
+      testingTab.add("Velocity", m_robotContainer.drive.leftDriveMaster.getEncoder().getVelocity());
+      testingTab.add("Position", m_robotContainer.drive.leftDriveMaster.getEncoder().getPosition());
+    }
+    else if(testController.getAButton()){
+      m_robotContainer.drive.leftDriveSlave.set(-testController.getLeftY());
+      testingTab.add("Motor", "Left Drive Slave (2)");
+      testingTab.add("Power", m_robotContainer.drive.leftDriveSlave.get());
+      testingTab.add("Velocity", m_robotContainer.drive.leftDriveSlave.getEncoder().getVelocity());
+      testingTab.add("Position", m_robotContainer.drive.leftDriveSlave.getEncoder().getPosition());
+    }
+    else if(testController.getYButton()){
+      m_robotContainer.drive.rightDriveMaster.set(-testController.getLeftY());
+      testingTab.add("Motor", "Right Drive Master (3)");
+      testingTab.add("Power", m_robotContainer.drive.rightDriveMaster.get());
+      testingTab.add("Velocity", m_robotContainer.drive.rightDriveMaster.getEncoder().getVelocity());
+      testingTab.add("Position", m_robotContainer.drive.rightDriveMaster.getEncoder().getPosition());
+    }
+    else if(testController.getBButton()){
+      m_robotContainer.drive.rightDriveSlave.set(-testController.getLeftY());
+      testingTab.add("Motor", "Right Drive Slave (4)");
+      testingTab.add("Power", m_robotContainer.drive.rightDriveSlave.get());
+      testingTab.add("Velocity", m_robotContainer.drive.rightDriveSlave.getEncoder().getVelocity());
+      testingTab.add("Position", m_robotContainer.drive.rightDriveSlave.getEncoder().getPosition());
+    }
+    else if(testController.getStartButton()){
+      m_robotContainer.feed.feedMotor.set(-testController.getLeftY());
+      testingTab.add("Motor", "Feed Motor (5)");
+      testingTab.add("Power", m_robotContainer.feed.feedMotor.get());
+      testingTab.add("Velocity", m_robotContainer.feed.feedMotor.getEncoder().getVelocity());
+      testingTab.add("Position", m_robotContainer.feed.feedMotor.getEncoder().getPosition());
+    }
+    else if(testController.getBackButton()){
+      m_robotContainer.climb.climbMotor.set(-testController.getLeftY());
+      testingTab.add("Motor", "Climb Motor (6)");
+      testingTab.add("Power", m_robotContainer.climb.climbMotor.get());
+      testingTab.add("Velocity", m_robotContainer.climb.climbMotor.getEncoder().getVelocity());
+      testingTab.add("Position", m_robotContainer.climb.climbMotor.getEncoder().getPosition());
+    }
+    else if(testController.getLeftBumper()){
+      m_robotContainer.intake.intakeMotor.set(-testController.getLeftY());
+      testingTab.add("Motor", "Intake Motor (7)");
+      testingTab.add("Power", m_robotContainer.intake.intakeMotor.get());
+      testingTab.add("Velocity", m_robotContainer.intake.intakeMotor.getEncoder().getVelocity());
+      testingTab.add("Position", m_robotContainer.intake.intakeMotor.getEncoder().getPosition());
+    }
+    else if(testController.getRightBumper()){
+      m_robotContainer.shoot.shooterMotor.set(-testController.getLeftY());
+      testingTab.add("Motor", "Shooter Motor (8)");
+      testingTab.add("Power", m_robotContainer.shoot.shooterMotor.get());
+      testingTab.add("Velocity", m_robotContainer.shoot.shooterMotor.getEncoder().getVelocity());
+      testingTab.add("Position", m_robotContainer.shoot.shooterMotor.getEncoder().getPosition());
+    }
+    else if(testController.getLeftStickButtonPressed()){
+      m_robotContainer.air.toggleIntake();
+      testingTab.add("Pneumatic", "Intake");
+      testingTab.add("State", m_robotContainer.air.getIntakeSolenoidStatus());
+    }
+    else if(testController.getRightStickButtonPressed()){
+      m_robotContainer.air.toggleClimb();
+      testingTab.add("Pneumatic", "Climb");
+      testingTab.add("State", m_robotContainer.air.getClimbSolenoidStatus());
+    }
+    else{
+      m_robotContainer.drive.leftDriveMaster.stopMotor();
+      m_robotContainer.drive.leftDriveSlave.stopMotor();
+      m_robotContainer.drive.rightDriveMaster.stopMotor();
+      m_robotContainer.drive.rightDriveSlave.stopMotor();
+      m_robotContainer.feed.feedMotor.stopMotor();
+      m_robotContainer.climb.climbMotor.stopMotor();
+      m_robotContainer.intake.intakeMotor.stopMotor();
+      m_robotContainer.shoot.shooterMotor.stopMotor();
+      testingTab.add("Motor", "No Motor Selected");
+      testingTab.add("Power", 0);
+      testingTab.add("Velocity", 0);
+      testingTab.add("Position", 0);
+    }    
+  }
 }

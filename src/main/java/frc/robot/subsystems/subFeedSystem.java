@@ -9,7 +9,7 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants.ShooterSystem;
 
 public class subFeedSystem extends SubsystemBase {
-  private CANSparkMax feedMotor = new CANSparkMax(ShooterSystem.FeedId, MotorType.kBrushless);
+  public CANSparkMax feedMotor = new CANSparkMax(ShooterSystem.FeedId, MotorType.kBrushless);
   private RelativeEncoder feedEncoder = feedMotor.getEncoder();
   
   public subFeedSystem() {

@@ -12,7 +12,7 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants.*;
 
 public class subClimbSystem extends SubsystemBase {
-  private CANSparkMax climbMotor = new CANSparkMax(ClimbSystem.ClimbId, MotorType.kBrushless);
+  public CANSparkMax climbMotor = new CANSparkMax(ClimbSystem.ClimbId, MotorType.kBrushless);
   private RelativeEncoder climbEncoder = climbMotor.getEncoder();
 
   public subClimbSystem() {

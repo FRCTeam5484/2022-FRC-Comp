@@ -15,10 +15,10 @@ import frc.robot.Constants.*;
 
 public class subDriveSystem extends SubsystemBase {
   //Making Speed Controllers
-  private CANSparkMax leftDriveMaster = new CANSparkMax(DriveSystem.LeftMasterMotorId, MotorType.kBrushless);
-  private CANSparkMax leftDriveSlave = new CANSparkMax(DriveSystem.LeftSlaveMotorId, MotorType.kBrushless);
-  private CANSparkMax rightDriveMaster = new CANSparkMax(DriveSystem.RightMasterMotorId, MotorType.kBrushless);
-  private CANSparkMax rightDriveSlave = new CANSparkMax(DriveSystem.RightSlaveMotorId, MotorType.kBrushless);
+  public CANSparkMax leftDriveMaster = new CANSparkMax(DriveSystem.LeftMasterMotorId, MotorType.kBrushless);
+  public CANSparkMax leftDriveSlave = new CANSparkMax(DriveSystem.LeftSlaveMotorId, MotorType.kBrushless);
+  public CANSparkMax rightDriveMaster = new CANSparkMax(DriveSystem.RightMasterMotorId, MotorType.kBrushless);
+  public CANSparkMax rightDriveSlave = new CANSparkMax(DriveSystem.RightSlaveMotorId, MotorType.kBrushless);
   private DifferentialDrive driveTrain = new DifferentialDrive(leftDriveMaster, rightDriveMaster);
   private SparkMaxPIDController leftPidController = leftDriveMaster.getPIDController();
   private SparkMaxPIDController rightPidController = rightDriveMaster.getPIDController();
