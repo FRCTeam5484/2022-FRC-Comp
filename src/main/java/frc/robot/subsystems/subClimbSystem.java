@@ -39,6 +39,13 @@ public class subClimbSystem extends SubsystemBase {
   }
 
   public void TeleOp(final XboxController driver, boolean climbIsUp){
+    if(driver.getRightTriggerAxis() > 0.5){
+      climbMotor.set(-driver.getLeftY());
+    }
+    else{
+      climbMotor.stopMotor();
+    }
+    /*
     // If driver is holding right trigger, enable climb
     if(driver.getRightTriggerAxis() > 0.5){
       double driverCommand = driver.getLeftY() > 0.1 || driver.getLeftY() < -0.1 ? -driver.getLeftY() : 0.0;
@@ -57,7 +64,7 @@ public class subClimbSystem extends SubsystemBase {
     else{
       climbMotor.stopMotor();
     }
-
+    */
     /* **************************************************************************************** 
        This was used when climb was out of spec.  Do not delete incase we need it in the future
        ****************************************************************************************

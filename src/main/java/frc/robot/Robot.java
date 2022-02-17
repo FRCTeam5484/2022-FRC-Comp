@@ -14,7 +14,7 @@ public class Robot extends TimedRobot {
   @Override
   public void robotInit() {
     m_robotContainer = new RobotContainer();
-    SmartDashboard.setDefaultBoolean("Enable Compressor", true);
+    //SmartDashboard.setDefaultBoolean("Enable Compressor", true);
   }
 
   @Override
@@ -27,7 +27,7 @@ public class Robot extends TimedRobot {
     SmartDashboard.putData("Ball Feeder Current Command", m_robotContainer.feed);
 
     SmartDashboard.putNumber("Climb Encoder", m_robotContainer.climb.getPosition());    
-    SmartDashboard.putBoolean("Climb Air", m_robotContainer.air.getClimbSolenoidStatus());
+    //SmartDashboard.putBoolean("Climb Air", m_robotContainer.air.getClimbSolenoidStatus());
     SmartDashboard.putData("Climb Command", m_robotContainer.climb);
 
     SmartDashboard.putNumber("Drive Left Position", m_robotContainer.drive.getLeftPosition());
@@ -38,7 +38,7 @@ public class Robot extends TimedRobot {
     SmartDashboard.putData("Drive Command", m_robotContainer.drive);
 
     SmartDashboard.putNumber("Intake Velocity", m_robotContainer.intake.getVelocity());
-    SmartDashboard.putBoolean("Intake Air", m_robotContainer.air.getIntakeSolenoidStatus());
+    //SmartDashboard.putBoolean("Intake Air", m_robotContainer.air.getIntakeSolenoidStatus());
     SmartDashboard.putData("Intake Command", m_robotContainer.intake);
     
     SmartDashboard.putNumber("Shooter Velocity", m_robotContainer.shoot.getVelocity());
@@ -79,6 +79,7 @@ public class Robot extends TimedRobot {
     m_robotContainer.drive.stopDrive();
     m_robotContainer.intake.stopIntake();
     m_robotContainer.feed.stopFeed();
+    m_robotContainer.shoot.stopShooter();
   }
 
   @Override

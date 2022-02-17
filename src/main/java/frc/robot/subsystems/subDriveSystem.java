@@ -42,9 +42,6 @@ public class subDriveSystem extends SubsystemBase {
     leftDriveMaster.restoreFactoryDefaults();
     leftDriveSlave.restoreFactoryDefaults();
 
-    leftDriveMaster.setSmartCurrentLimit(50);
-    leftDriveSlave.setSmartCurrentLimit(50);
-
     leftDriveMaster.setInverted(DriveSystem.LeftDriveInverted);
 
     leftDriveMaster.setIdleMode(IdleMode.kCoast);
@@ -54,9 +51,6 @@ public class subDriveSystem extends SubsystemBase {
 
     rightDriveMaster.restoreFactoryDefaults();
     rightDriveSlave.restoreFactoryDefaults();
-
-    rightDriveMaster.setSmartCurrentLimit(50);
-    rightDriveSlave.setSmartCurrentLimit(50);
 
     rightDriveMaster.setInverted(DriveSystem.RightDriveInverted);
 

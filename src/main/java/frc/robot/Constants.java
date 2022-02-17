@@ -17,7 +17,7 @@ public final class Constants {
         private final static int ShooterMotor = 8;
 
         // Pneumatic 
-        private final static int pneumaticHubId = 0;
+        private final static int pneumaticHubId = 1;
         private final static int intakeSolendoidId = 1;
         private final static int climbSolendoidId = 0;
 
@@ -114,8 +114,8 @@ public final class Constants {
         // Limits
         //public final static int ClimbEncoderTopLimitWhenDown = 151;
         //public final static int ClimbEncoderTopLimitWhenUp = 155;
-        public final static int ClimbEncoderTopLimit = 155;
-        public final static int ClimbEncoderBottomLimit = 1;
+        public final static int ClimbEncoderTopLimit = 148;
+        public final static int ClimbEncoderBottomLimit = -14;
     }
 
     public final static class PneumaticSystem {

@@ -21,7 +21,6 @@ public class subFeedSystem extends SubsystemBase {
 
   private void SetMotorSettings() {
     feedMotor.restoreFactoryDefaults();
-    //feedMotor.setSmartCurrentLimit(40);
     feedMotor.setInverted(ShooterSystem.BallFeedInverted);
     feedMotor.setIdleMode(IdleMode.kCoast);
     feedMotor.burnFlash();
