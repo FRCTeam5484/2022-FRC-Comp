@@ -1,10 +1,7 @@
 package frc.robot;
 
-import java.util.Map;
-
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.XboxController;
-import edu.wpi.first.wpilibj.shuffleboard.BuiltInWidgets;
 import edu.wpi.first.wpilibj.shuffleboard.Shuffleboard;
 import edu.wpi.first.wpilibj.shuffleboard.ShuffleboardTab;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
@@ -100,7 +97,6 @@ public class Robot extends TimedRobot {
   public void testPeriodic() {
     ShuffleboardTab testingTab = Shuffleboard.getTab("Testing");
     Shuffleboard.selectTab("Testing");
-    // Controller
     XboxController testController = m_robotContainer.driverOne;
     if(testController.getXButton()){
       m_robotContainer.drive.leftDriveMaster.set(-testController.getLeftY());
