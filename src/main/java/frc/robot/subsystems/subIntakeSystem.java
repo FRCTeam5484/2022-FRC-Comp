@@ -23,6 +23,7 @@ public class subIntakeSystem extends SubsystemBase {
   private void SetMotorSettings() {
     intakeMotor.restoreFactoryDefaults();
     intakeMotor.setInverted(IntakeSystem.IntakeInverted);
+    intakeMotor.setSmartCurrentLimit(15);
     intakeMotor.setIdleMode(IdleMode.kCoast);
     intakeMotor.burnFlash();
   }
