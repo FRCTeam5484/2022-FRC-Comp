@@ -97,7 +97,7 @@ public class Robot extends TimedRobot {
   public void testPeriodic() {
     ShuffleboardTab testingTab = Shuffleboard.getTab("Testing");
     Shuffleboard.selectTab("Testing");
-    XboxController testController = new XboxController(3);
+    XboxController testController = new XboxController(0);
     if(testController.getXButton()){
       m_robotContainer.drive.leftDriveMaster.set(-testController.getLeftY());
       testingTab.add("Motor", "Left Drive Master (1)");
