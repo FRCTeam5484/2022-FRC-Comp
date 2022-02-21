@@ -49,6 +49,9 @@ public class subDriveSystem extends SubsystemBase {
 
     leftDriveSlave.follow(leftDriveMaster, false);
 
+    leftDriveMaster.setSmartCurrentLimit(50);
+    leftDriveSlave.setSmartCurrentLimit(50);
+
     rightDriveMaster.restoreFactoryDefaults();
     rightDriveSlave.restoreFactoryDefaults();
 
@@ -59,10 +62,14 @@ public class subDriveSystem extends SubsystemBase {
 
     rightDriveSlave.follow(rightDriveMaster, false);
 
+    rightDriveMaster.setSmartCurrentLimit(50);
+    rightDriveSlave.setSmartCurrentLimit(50);
+
     leftDriveMaster.burnFlash();
     leftDriveSlave.burnFlash();
     rightDriveMaster.burnFlash();
     rightDriveSlave.burnFlash();
+
   }
 
   //Drive Methods
