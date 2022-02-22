@@ -26,8 +26,8 @@ public class Robot extends TimedRobot {
     
     SmartDashboard.putData("Current Command", CommandScheduler.getInstance());
 
-    SmartDashboard.putNumber("Ball Feeder Velocity", m_robotContainer.feed.getVelocity());
-    SmartDashboard.putData("Ball Feeder Current Command", m_robotContainer.feed);
+    SmartDashboard.putNumber("Feeder Velocity", m_robotContainer.feed.getVelocity());
+    SmartDashboard.putData("Feeder Current Command", m_robotContainer.feed);
 
     SmartDashboard.putNumber("Climb Encoder", m_robotContainer.climb.getPosition());    
     //SmartDashboard.putBoolean("Climb Air", m_robotContainer.air.getClimbSolenoidStatus());
