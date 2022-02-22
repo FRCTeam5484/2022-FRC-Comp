@@ -1,5 +1,8 @@
 package frc.robot;
 
+import edu.wpi.first.cameraserver.CameraServer;
+import edu.wpi.first.cscore.UsbCamera;
+import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.XboxController.Button;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
@@ -20,10 +23,10 @@ import frc.robot.subsystems.subFeedSystem;
 import frc.robot.subsystems.subClimbSystem;
 import frc.robot.subsystems.subDriveSystem;
 import frc.robot.subsystems.subIntakeSystem;
-import frc.robot.subsystems.subLimeLight;
 import frc.robot.subsystems.subPneumaticSystem;
 import frc.robot.subsystems.subPowerDistributionSystem;
 import frc.robot.subsystems.subShootSystem;
+import frc.robot.subsystems.subVisionSystem;
 
 public class RobotContainer {
   SendableChooser<Command> autoChooser = new SendableChooser<>();
@@ -61,16 +64,17 @@ public class RobotContainer {
   JoystickButton driverTwo_RightStick = new JoystickButton(driverTwo, Button.kRightStick.value);
 
   // SubSystems
-  public final subLimeLight lime = new subLimeLight();
-  public final subDriveSystem drive = new subDriveSystem(lime);
+  public final subDriveSystem drive = new subDriveSystem();
   public final subIntakeSystem intake = new subIntakeSystem();
   public final subClimbSystem climb = new subClimbSystem();
   public final subPneumaticSystem air = new subPneumaticSystem();
   public final subShootSystem shoot = new subShootSystem();
   public final subFeedSystem feed = new subFeedSystem();
   public final subPowerDistributionSystem power = new subPowerDistributionSystem();
+  public final subVisionSystem vision = new subVisionSystem();
 
   public RobotContainer() {
+    DriverStation.silenceJoystickConnectionWarning(true);
     AddAutoCommands();
     DriverOneFunctions();
     DriverTwoFunctions();
@@ -130,6 +134,7 @@ public class RobotContainer {
       .whenPressed(new RunCommand(() -> feed.reverseFeed(), feed))
       .whenReleased(new InstantCommand(() -> feed.stopFeed(), feed));    
   }
+
   public Command getAutonomousCommand() {
     return autoChooser.getSelected();
   }

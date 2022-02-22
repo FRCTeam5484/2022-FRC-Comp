@@ -23,10 +23,8 @@ public class subDriveSystem extends SubsystemBase {
   public MotorControllerGroup leftDrive = new MotorControllerGroup(leftDriveMaster, leftDriveSlave);
   public MotorControllerGroup rightDrive = new MotorControllerGroup(rightDriveMaster, rightDriveSlave);
   private DifferentialDrive driveTrain = new DifferentialDrive(leftDrive, rightDrive);
-  private subLimeLight limeLight;
   
-  public subDriveSystem(subLimeLight _limeLight) {
-    limeLight = _limeLight;
+  public subDriveSystem() {
     SetMotorSettings();
   }
 

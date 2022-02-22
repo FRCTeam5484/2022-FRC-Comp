@@ -1,5 +1,12 @@
 package frc.robot;
 
+import org.opencv.core.Mat;
+import org.opencv.imgproc.Imgproc;
+
+import edu.wpi.first.cameraserver.CameraServer;
+import edu.wpi.first.cscore.CvSink;
+import edu.wpi.first.cscore.CvSource;
+import edu.wpi.first.cscore.UsbCamera;
 import edu.wpi.first.networktables.NetworkTableEntry;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.XboxController;
@@ -18,6 +25,7 @@ public class Robot extends TimedRobot {
   @Override
   public void robotInit() {
     m_robotContainer = new RobotContainer();
+    m_robotContainer.vision.startCameraStreams();
   }
 
   @Override
@@ -47,9 +55,6 @@ public class Robot extends TimedRobot {
     SmartDashboard.putNumber("Shooter Velocity", m_robotContainer.shoot.getVelocity());
     SmartDashboard.putNumber("Shooter Power", m_robotContainer.shoot.getPowerValue());
     SmartDashboard.putData("Shooter Command", m_robotContainer.shoot);
-
-    SmartDashboard.putString("LimeLight Video", "http://10.54.84.150:5800");
-    SmartDashboard.putString("LimeLight Config", "http://10.54.84.150:5801");
   }
 
   @Override
@@ -70,7 +75,6 @@ public class Robot extends TimedRobot {
 
   @Override
   public void autonomousInit() {
-    m_robotContainer.lime.setToAutoTargetMode();
     m_autonomousCommand = m_robotContainer.getAutonomousCommand();
 
     if (m_autonomousCommand != null) {
@@ -83,7 +87,6 @@ public class Robot extends TimedRobot {
 
   @Override
   public void teleopInit() {
-    m_robotContainer.lime.setToDriverMode();
     if (m_autonomousCommand != null) {
       m_autonomousCommand.cancel();
     }
