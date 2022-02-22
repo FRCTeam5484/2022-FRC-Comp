@@ -13,6 +13,7 @@ import frc.robot.commands.Autonomous_TwoBallShootHighLeft;
 import frc.robot.commands.Autonomous_ThreeBallShootHighRight;
 import frc.robot.commands.Autonomous_MoveOffLine;
 import frc.robot.commands.Autonomous_ShootAndMove;
+import frc.robot.commands.Autonomous_ShootGrabShootHighLeft;
 import frc.robot.commands.cmdIntake_Lower;
 import frc.robot.commands.cmdIntake_Raise;
 import frc.robot.subsystems.subFeedSystem;
@@ -76,10 +77,11 @@ public class RobotContainer {
   }
 
   private void AddAutoCommands(){
-    autoChooser.setDefaultOption("Move Off Line", new Autonomous_MoveOffLine(drive));  
-    autoChooser.addOption("Shoot and Move", new Autonomous_ShootAndMove(drive, feed, shoot));
-    autoChooser.addOption("Two Ball Shoot High - DS Left", new Autonomous_TwoBallShootHighLeft(drive, feed, intake, air, shoot));
-    autoChooser.addOption("Three Ball Shoot High - DS Right", new Autonomous_ThreeBallShootHighRight(drive, feed, intake, air, shoot));
+    autoChooser.setDefaultOption("Shoot, Move Back", new Autonomous_ShootAndMove(drive, feed, shoot));  
+    autoChooser.addOption("Grab, Shoot 2, Move Back - DS Left", new Autonomous_TwoBallShootHighLeft(drive, feed, intake, air, shoot));
+    autoChooser.addOption("Shoot, Grab, Shoot, Move Back - DS Left", new Autonomous_ShootGrabShootHighLeft(drive, feed, intake, air, shoot));
+    autoChooser.addOption("Grab, Shoot 2, Grab Shoot 1, Move Back - DS Right", new Autonomous_ThreeBallShootHighRight(drive, feed, intake, air, shoot));
+    autoChooser.addOption("Move Off Line", new Autonomous_MoveOffLine(drive));
     SmartDashboard.putData("Autonomous", autoChooser);
   }
 
