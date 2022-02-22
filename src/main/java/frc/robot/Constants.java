@@ -49,8 +49,8 @@ public final class Constants {
         public final static int LeftMasterMotorId = HardwareId.DriveLeftMaster;
         public final static int LeftSlaveMotorId = HardwareId.DriveLeftSlave;        
         // Inversion
-        public final static boolean LeftDriveInverted = false;
-        public final static boolean RightDriveInverted = true;
+        public final static boolean LeftDriveInverted = true;
+        public final static boolean RightDriveInverted = false;
         // Speed
         public final static double ManualSpeedFactor = 0.95;
         public final static double AutoMaxSpeed = 0.70;

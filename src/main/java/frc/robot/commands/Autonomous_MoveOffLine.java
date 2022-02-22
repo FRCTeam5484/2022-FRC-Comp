@@ -20,7 +20,7 @@ public class Autonomous_MoveOffLine extends CommandBase {
 
   @Override
   public void execute() {
-    drive.autoDriveByPower(-0.4);
+    drive.autoDriveByPower(0.4);
   }
 
   @Override

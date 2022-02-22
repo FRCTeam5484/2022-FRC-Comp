@@ -12,10 +12,9 @@ import edu.wpi.first.wpilibj2.command.button.Trigger;
 import frc.robot.commands.Autonomous_TwoBallShootHighLeft;
 import frc.robot.commands.Autonomous_ThreeBallShootHighRight;
 import frc.robot.commands.Autonomous_MoveOffLine;
+import frc.robot.commands.Autonomous_ShootAndMove;
 import frc.robot.commands.cmdIntake_Lower;
 import frc.robot.commands.cmdIntake_Raise;
-import frc.robot.commands.cmdShooter_HighGoalSpeed;
-import frc.robot.commands.cmdShooter_LowGoalSpeed;
 import frc.robot.subsystems.subFeedSystem;
 import frc.robot.subsystems.subClimbSystem;
 import frc.robot.subsystems.subDriveSystem;
@@ -78,8 +77,9 @@ public class RobotContainer {
 
   private void AddAutoCommands(){
     autoChooser.setDefaultOption("Move Off Line", new Autonomous_MoveOffLine(drive));  
+    autoChooser.addOption("Shoot and Move", new Autonomous_ShootAndMove(drive, feed, shoot));
     autoChooser.addOption("Two Ball Shoot High - DS Left", new Autonomous_TwoBallShootHighLeft(drive, feed, intake, air, shoot));
-    autoChooser.addOption("Two Ball Shoot High - DS Right", new Autonomous_ThreeBallShootHighRight(drive, feed, intake, air, shoot));
+    autoChooser.addOption("Three Ball Shoot High - DS Right", new Autonomous_ThreeBallShootHighRight(drive, feed, intake, air, shoot));
     SmartDashboard.putData("Autonomous", autoChooser);
   }
 

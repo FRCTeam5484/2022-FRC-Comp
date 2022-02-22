@@ -16,14 +16,14 @@ public class Autonomous_ThreeBallShootHighRight extends SequentialCommandGroup {
       new ParallelCommandGroup(
         new InstantCommand(() -> _intake.runIntake()),
         new InstantCommand(() -> _air.lowerIntake()),
-        new cmdDrive_DriveStraightByEncoder(_drive, 28, 0.7)
+        new cmdDrive_DriveStraightByEncoder(_drive, 28, 0.3)
       ),
       // Stop drive, stop intake, raise intake, drive forward
       new InstantCommand(() -> _drive.setDriveLocked()),
       new ParallelCommandGroup(
         new InstantCommand(() -> _intake.stopIntake()),
         new InstantCommand(() -> _air.raiseIntake()),
-        new cmdDrive_DriveStraightByEncoder(_drive, 25, -0.6)
+        new cmdDrive_DriveStraightByEncoder(_drive, 25, -0.3)
       ),
       // Stop drive, shoot balls, turn robot
       new InstantCommand(() -> _drive.setDriveLocked()),
@@ -34,14 +34,14 @@ public class Autonomous_ThreeBallShootHighRight extends SequentialCommandGroup {
       new ParallelCommandGroup(
         new InstantCommand(() -> _intake.runIntake()),
         new InstantCommand(() -> _air.lowerIntake()),
-        new cmdDrive_DriveStraightByEncoder(_drive, 50, 0.8)
+        new cmdDrive_DriveStraightByEncoder(_drive, 50, 0.3)
       ),
       // stop drive, stop intake, raise intake, drive forward
       new InstantCommand(() -> _drive.setDriveLocked()),
       new ParallelCommandGroup(
         new InstantCommand(() -> _intake.stopIntake()),
         new InstantCommand(() -> _air.raiseIntake()),
-        new cmdDrive_DriveStraightByEncoder(_drive, 38, -0.7)
+        new cmdDrive_DriveStraightByEncoder(_drive, 38, -0.3)
       ),
       // Turn robot, shoot balls, turn robot drive out.
       new InstantCommand(() -> _drive.ResetGyro()),
@@ -49,7 +49,7 @@ public class Autonomous_ThreeBallShootHighRight extends SequentialCommandGroup {
       new cmdShooter_AutoShootHighGoal(_shooter, _feed, 3),
       new InstantCommand(() -> _drive.ResetGyro()),
       new cmdDrive_GyroTurnToAngle(_drive, 70),
-      new cmdDrive_DriveStraightByEncoder(_drive, 28, 0.7)
+      new cmdDrive_DriveStraightByEncoder(_drive, 28, 0.3)
     );
   }
 }

@@ -16,22 +16,21 @@ public class Autonomous_TwoBallShootHighLeft extends SequentialCommandGroup {
       new ParallelCommandGroup(
         new InstantCommand(() -> _intake.runIntake()),
         new InstantCommand(() -> _air.lowerIntake()),
-        new cmdDrive_DriveStraightByEncoder(_drive, 35, 0.8)
+        new cmdDrive_DriveStraightByEncoder(_drive, 35, 0.6)
       ),
       // Stop intake, raise intake, drive forwards
       new InstantCommand(() -> _drive.setDriveLocked()),
       new ParallelCommandGroup(
         new InstantCommand(() -> _intake.stopIntake()),
         new InstantCommand(() -> _air.raiseIntake()),
-        new cmdDrive_DriveStraightByEncoder(_drive, 35, -0.5)
+        new cmdDrive_DriveStraightByEncoder(_drive, 27, -0.5)
       ),
       // Stop drive, shoot balls
       new InstantCommand(() -> _drive.setDriveLocked()),
       new cmdShooter_AutoShootHighGoal(_shooter, _feed, 3),
       // Leave loading zone
-      new cmdDrive_DriveStraightByEncoder(_drive, 30, 0.8),
-      new InstantCommand(() -> _drive.setDriveUnlocked())
-
+      new cmdDrive_DriveStraightByEncoder(_drive, 30, 0.7),
+      new InstantCommand(() -> _drive.setDriveLocked())
     );
   }
 }

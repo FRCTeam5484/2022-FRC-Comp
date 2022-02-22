@@ -22,7 +22,7 @@ public class subFeedSystem extends SubsystemBase {
   private void SetMotorSettings() {
     feedMotor.restoreFactoryDefaults();
     feedMotor.setInverted(ShooterSystem.BallFeedInverted);
-    feedMotor.setIdleMode(IdleMode.kCoast);
+    feedMotor.setIdleMode(IdleMode.kBrake);
     feedMotor.burnFlash();
   }
 
