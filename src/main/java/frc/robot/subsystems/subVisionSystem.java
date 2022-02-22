@@ -29,16 +29,16 @@ public class subVisionSystem extends SubsystemBase {
   
   public subVisionSystem() {
     try {
-      String intakeCameraName = "Front-Center";
+      String intakeCameraName = "Intake Camera";
       intakeCamera = new UsbCamera(intakeCameraName, 0);
       intakeCamera.setVideoMode(PixelFormat.kMJPEG, 320, 240, 15);
       intakeCameraServer = new MjpegServer(intakeCameraName, 1185);
       intakeCameraServer.setSource(intakeCamera);
       
-      String shooterCameraName = "Back-Center";
+      String shooterCameraName = "Shooter Camera";
       shooterCamera = new UsbCamera(shooterCameraName, 1);
       shooterCamera.setVideoMode(PixelFormat.kMJPEG, 320, 240, 15);
-      shooterCameraServer = new MjpegServer(shooterCameraName, 1187);
+      shooterCameraServer = new MjpegServer(shooterCameraName, 1186);
       shooterCameraServer.setSource(shooterCamera);
 
       cameras.addAll(Arrays.asList(
