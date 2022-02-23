@@ -9,8 +9,8 @@ import frc.robot.subsystems.subIntakeSystem;
 import frc.robot.subsystems.subPneumaticSystem;
 import frc.robot.subsystems.subShootSystem;
 
-public class Autonomous_ThreeBallShootHighRight extends SequentialCommandGroup {
-  public Autonomous_ThreeBallShootHighRight(subDriveSystem _drive, subFeedSystem _feed, subIntakeSystem _intake, subPneumaticSystem _air, subShootSystem _shooter) {
+public class Autonomous_Option4 extends SequentialCommandGroup {
+  public Autonomous_Option4(subDriveSystem _drive, subFeedSystem _feed, subIntakeSystem _intake, subPneumaticSystem _air, subShootSystem _shooter) {
     addCommands(
       // Lower intake, run intake and drive backwards to ball
       new ParallelCommandGroup(

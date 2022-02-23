@@ -9,28 +9,33 @@ import frc.robot.subsystems.subIntakeSystem;
 import frc.robot.subsystems.subPneumaticSystem;
 import frc.robot.subsystems.subShootSystem;
 
-public class Autonomous_TwoBallShootHighLeft extends SequentialCommandGroup {
-  public Autonomous_TwoBallShootHighLeft(subDriveSystem _drive, subFeedSystem _feed, subIntakeSystem _intake, subPneumaticSystem _air, subShootSystem _shooter) {
+public class Autonomous_Option6 extends SequentialCommandGroup {
+  public Autonomous_Option6(subDriveSystem _drive, subFeedSystem _feed, subIntakeSystem _intake, subPneumaticSystem _air, subShootSystem _shooter) {
     addCommands(
       // Run intake, lower intake, drive backwards and pickup ball
       new ParallelCommandGroup(
         new InstantCommand(() -> _intake.runIntake()),
         new InstantCommand(() -> _air.lowerIntake()),
-        new cmdDrive_DriveStraightByEncoder(_drive, 35, 0.6)
+        new cmdDrive_DriveStraightByEncoder(_drive, 28, 0.3)
       ),
-      // Stop intake, raise intake, drive forwards
+      // Stop drive, stop intake, raise intake, drive forward
       new InstantCommand(() -> _drive.setDriveLocked()),
       new ParallelCommandGroup(
         new InstantCommand(() -> _intake.stopIntake()),
         new InstantCommand(() -> _air.raiseIntake()),
-        new cmdDrive_DriveStraightByEncoder(_drive, 27, -0.5)
+        new cmdDrive_DriveStraightByEncoder(_drive, 25, -0.3)
       ),
-      // Stop drive, shoot balls
+      // Stop drive, shoot balls, turn robot
       new InstantCommand(() -> _drive.setDriveLocked()),
       new cmdShooter_AutoShootHighGoal(_shooter, _feed, 3),
-      // Leave loading zone
-      new cmdDrive_DriveStraightByEncoder(_drive, 30, 0.7),
-      new InstantCommand(() -> _drive.setDriveLocked())
+      new InstantCommand(() -> _drive.ResetGyro()),
+      new cmdDrive_GyroTurnToAngle(_drive, 70),
+      // Run intake, lower intake, drive to ball
+      new ParallelCommandGroup(
+        new InstantCommand(() -> _intake.runIntake()),
+        new InstantCommand(() -> _air.lowerIntake()),
+        new cmdDrive_DriveStraightByEncoder(_drive, 50, 0.3)
+      )
     );
   }
 }

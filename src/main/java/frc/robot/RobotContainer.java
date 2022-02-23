@@ -10,11 +10,12 @@ import edu.wpi.first.wpilibj2.command.InstantCommand;
 import edu.wpi.first.wpilibj2.command.RunCommand;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import edu.wpi.first.wpilibj2.command.button.Trigger;
-import frc.robot.commands.Autonomous_TwoBallShootHighLeft;
-import frc.robot.commands.Autonomous_ThreeBallShootHighRight;
-import frc.robot.commands.Autonomous_MoveOffLine;
-import frc.robot.commands.Autonomous_ShootAndMove;
-import frc.robot.commands.Autonomous_ShootGrabShootHighLeft;
+import frc.robot.commands.Autonomous_Option1;
+import frc.robot.commands.Autonomous_Option2;
+import frc.robot.commands.Autonomous_Option3;
+import frc.robot.commands.Autonomous_Option4;
+import frc.robot.commands.Autonomous_Option5;
+import frc.robot.commands.Autonomous_Option6;
 import frc.robot.commands.cmdIntake_Lower;
 import frc.robot.commands.cmdIntake_Raise;
 import frc.robot.subsystems.subFeedSystem;
@@ -79,11 +80,12 @@ public class RobotContainer {
   }
 
   private void AddAutoCommands(){
-    autoChooser.setDefaultOption("Shoot, Move Back", new Autonomous_ShootAndMove(drive, feed, shoot));  
-    autoChooser.addOption("Grab, Shoot 2, Move Back - DS Left", new Autonomous_TwoBallShootHighLeft(drive, feed, intake, air, shoot));
-    autoChooser.addOption("Shoot, Grab, Shoot, Move Back - DS Left", new Autonomous_ShootGrabShootHighLeft(drive, feed, intake, air, shoot));
-    autoChooser.addOption("Grab, Shoot 2, Grab Shoot 1, Move Back - DS Right", new Autonomous_ThreeBallShootHighRight(drive, feed, intake, air, shoot));
-    autoChooser.addOption("Move Off Line", new Autonomous_MoveOffLine(drive));
+    autoChooser.setDefaultOption("Option 1 - Shoot, Move", new Autonomous_Option1(drive, feed, shoot));  
+    autoChooser.addOption("Option 2 - Shoot, Grab, Shoot, Move", new Autonomous_Option2(drive, feed, intake, air, shoot));
+    autoChooser.addOption("Option 3 - Grab, Shoot 2, Move", new Autonomous_Option3(drive, feed, intake, air, shoot));
+    autoChooser.addOption("Option 4 - Grab, Shoot 2, Turn, Move, Grab, Move, Turn, Shoot 1", new Autonomous_Option4(drive, feed, intake, air, shoot));
+    autoChooser.addOption("Option 5 - Move Off Line", new Autonomous_Option5(drive));
+    autoChooser.addOption("Option 6 - Grab, Shoot 2, Turn, Move", new Autonomous_Option6(drive, feed, intake, air, shoot));
     SmartDashboard.putData("Autonomous", autoChooser);
   }
 

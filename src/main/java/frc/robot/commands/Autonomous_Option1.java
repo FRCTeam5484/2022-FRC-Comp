@@ -6,9 +6,9 @@ import frc.robot.subsystems.subDriveSystem;
 import frc.robot.subsystems.subFeedSystem;
 import frc.robot.subsystems.subShootSystem;
 
-public class Autonomous_ShootAndMove extends SequentialCommandGroup {
+public class Autonomous_Option1 extends SequentialCommandGroup {
   
-  public Autonomous_ShootAndMove(subDriveSystem _drive, subFeedSystem _feed, subShootSystem _shooter) {
+  public Autonomous_Option1(subDriveSystem _drive, subFeedSystem _feed, subShootSystem _shooter) {
     addCommands(
       // Shoot ball
       new cmdShooter_AutoShootHighGoal(_shooter, _feed, 3),

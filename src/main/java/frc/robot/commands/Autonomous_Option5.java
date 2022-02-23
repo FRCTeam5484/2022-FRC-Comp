@@ -4,10 +4,10 @@ import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.subsystems.subDriveSystem;
 
-public class Autonomous_MoveOffLine extends CommandBase {
+public class Autonomous_Option5 extends CommandBase {
   subDriveSystem drive;
   Timer time;
-  public Autonomous_MoveOffLine(subDriveSystem _drive) {
+  public Autonomous_Option5(subDriveSystem _drive) {
     drive = _drive;
     addRequirements(drive);
   }
