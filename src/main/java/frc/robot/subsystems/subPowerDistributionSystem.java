@@ -28,6 +28,5 @@ public class subPowerDistributionSystem extends SubsystemBase {
     SmartDashboard.putNumber("RoboRio Current", pdh.getCurrent(PowerSystem.roboRioId));
     SmartDashboard.putNumber("Pneumatic Hub Current", pdh.getCurrent(PowerSystem.phId));
     SmartDashboard.putNumber("Radio Current", pdh.getCurrent(PowerSystem.radioId));
-    SmartDashboard.putNumber("LimeLight Current", pdh.getCurrent(PowerSystem.limeLightId));
   }
 }

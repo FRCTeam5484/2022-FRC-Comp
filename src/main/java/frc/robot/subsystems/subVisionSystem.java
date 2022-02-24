@@ -31,19 +31,21 @@ public class subVisionSystem extends SubsystemBase {
     try {
       String intakeCameraName = "Intake Camera";
       intakeCamera = new UsbCamera(intakeCameraName, 0);
-      intakeCamera.setVideoMode(PixelFormat.kMJPEG, 320, 240, 15);
+      intakeCamera.setVideoMode(PixelFormat.kMJPEG, 640, 480, 15);
       intakeCameraServer = new MjpegServer(intakeCameraName, 1185);
       intakeCameraServer.setSource(intakeCamera);
       
+      /*
       String shooterCameraName = "Shooter Camera";
       shooterCamera = new UsbCamera(shooterCameraName, 1);
       shooterCamera.setVideoMode(PixelFormat.kMJPEG, 320, 240, 15);
       shooterCameraServer = new MjpegServer(shooterCameraName, 1186);
       shooterCameraServer.setSource(shooterCamera);
+      */
 
       cameras.addAll(Arrays.asList(
-        intakeCamera,
-        shooterCamera
+        intakeCamera//,
+        //shooterCamera
       ));
 
       for (var camera: cameras) {
@@ -51,8 +53,8 @@ public class subVisionSystem extends SubsystemBase {
       }
 
       cameraNames.addAll(Arrays.asList(
-        intakeCameraName,
-        shooterCameraName
+        intakeCameraName//,
+        //shooterCameraName
       ));
     } catch (Exception e) {
       System.out.println("Exception constructing camera in RobotVision");

@@ -70,7 +70,7 @@ public class RobotContainer {
   public final subShootSystem shoot = new subShootSystem();
   public final subFeedSystem feed = new subFeedSystem();
   public final subPowerDistributionSystem power = new subPowerDistributionSystem();
-  public final subVisionSystem vision = new subVisionSystem();
+  //public final subVisionSystem vision = new subVisionSystem();
 
   public RobotContainer() {
     DriverStation.silenceJoystickConnectionWarning(true);

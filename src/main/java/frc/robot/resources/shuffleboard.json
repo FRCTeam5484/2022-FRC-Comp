@@ -5,82 +5,16 @@
       "autoPopulate": true,
       "autoPopulatePrefix": "SmartDashboard/",
       "widgetPane": {
-        "gridSize": 64.0,
+        "gridSize": 32.0,
         "showGrid": true,
-        "hgap": 8.0,
-        "vgap": 8.0,
+        "hgap": 4.0,
+        "vgap": 4.0,
         "titleType": 0,
         "tiles": {
-          "25,1": {
-            "size": [
-              3,
-              1
-            ],
-            "content": {
-              "_type": "Text View",
-              "_source0": "network_table:///SmartDashboard/LimeLight Video",
-              "_title": "LimeLight Video"
-            }
-          },
-          "0,5": {
-            "size": [
-              2,
-              1
-            ],
-            "content": {
-              "_type": "Text View",
-              "_source0": "network_table:///SmartDashboard/Left Follower Current",
-              "_title": "Left Follower Current"
-            }
-          },
-          "8,1": {
-            "size": [
-              4,
-              2
-            ],
-            "content": {
-              "_type": "Basic Subsystem",
-              "_source0": "network_table:///SmartDashboard/Intake Command",
-              "_title": "Intake Command"
-            }
-          },
-          "26,6": {
-            "size": [
-              2,
-              1
-            ],
-            "content": {
-              "_type": "Text View",
-              "_source0": "network_table:///SmartDashboard/LimeLight Current",
-              "_title": "LimeLight Current"
-            }
-          },
-          "12,3": {
-            "size": [
-              2,
-              1
-            ],
-            "content": {
-              "_type": "Text View",
-              "_source0": "network_table:///SmartDashboard/Feed Current",
-              "_title": "Feed Current"
-            }
-          },
-          "0,1": {
-            "size": [
-              4,
-              2
-            ],
-            "content": {
-              "_type": "Basic Subsystem",
-              "_source0": "network_table:///SmartDashboard/Drive Command",
-              "_title": "Drive Command"
-            }
-          },
           "0,0": {
             "size": [
-              5,
-              1
+              15,
+              4
             ],
             "content": {
               "_type": "ComboBox Chooser",
@@ -88,345 +22,192 @@
               "_title": "Autonomous"
             }
           },
-          "16,1": {
+          "27,0": {
             "size": [
-              5,
-              2
+              29,
+              26
             ],
             "content": {
-              "_type": "Basic Subsystem",
-              "_source0": "network_table:///SmartDashboard/Climb Command",
-              "_title": "Climb Command"
+              "_type": "Camera Stream",
+              "_source0": "camera_server://USB Camera 0",
+              "_title": "USB Camera 0",
+              "Crosshair/Show crosshair": true,
+              "Crosshair/Crosshair color": "#FFFFFFFF",
+              "Controls/Show controls": true,
+              "Controls/Rotation": "NONE",
+              "compression": 59.4344262295082,
+              "fps": -1,
+              "imageWidth": -1,
+              "imageHeight": -1
             }
           },
-          "14,3": {
+          "15,0": {
             "size": [
-              2,
-              1
+              12,
+              4
             ],
             "content": {
-              "_type": "Text View",
-              "_source0": "network_table:///SmartDashboard/Ball Feeder Velocity",
-              "_title": "Ball Feeder Velocity"
+              "_type": "Basic FMS Info",
+              "_title": "Basic FMS Info"
             }
           },
-          "4,3": {
+          "8,4": {
             "size": [
-              2,
-              1
+              7,
+              16
             ],
             "content": {
-              "_type": "Text View",
-              "_source0": "network_table:///SmartDashboard/Shooter Current",
-              "_title": "Shooter Current"
-            }
-          },
-          "26,2": {
-            "size": [
-              2,
-              1
-            ],
-            "content": {
-              "_type": "Text View",
-              "_source0": "network_table:///SmartDashboard/LimeLight X Offset",
-              "_title": "LimeLight X Offset"
-            }
-          },
-          "4,1": {
-            "size": [
-              4,
-              2
-            ],
-            "content": {
-              "_type": "Basic Subsystem",
-              "_source0": "network_table:///SmartDashboard/Shooter Command",
-              "_title": "Shooter Command"
-            }
-          },
-          "12,1": {
-            "size": [
-              4,
-              2
-            ],
-            "content": {
-              "_type": "Basic Subsystem",
-              "_source0": "network_table:///SmartDashboard/Ball Feeder Current Command",
-              "_title": "Ball Feeder Current Command"
+              "_type": "List Layout",
+              "_title": "Power",
+              "Layout/Label position": "LEFT",
+              "_children": [
+                {
+                  "_type": "Text View",
+                  "_source0": "network_table:///SmartDashboard/Voltage",
+                  "_title": "Voltage"
+                },
+                {
+                  "_type": "Text View",
+                  "_source0": "network_table:///SmartDashboard/Total Current",
+                  "_title": "Total Current"
+                },
+                {
+                  "_type": "Text View",
+                  "_source0": "network_table:///SmartDashboard/RoboRio Current",
+                  "_title": "RoboRio Current"
+                },
+                {
+                  "_type": "Text View",
+                  "_source0": "network_table:///SmartDashboard/Radio Current",
+                  "_title": "Radio Current"
+                },
+                {
+                  "_type": "Text View",
+                  "_source0": "network_table:///SmartDashboard/Pneumatic Hub Current",
+                  "_title": "Pneumatic Hub Current"
+                },
+                {
+                  "_type": "Text View",
+                  "_source0": "network_table:///SmartDashboard/Climb Current",
+                  "_title": "Climb Current"
+                },
+                {
+                  "_type": "Text View",
+                  "_source0": "network_table:///SmartDashboard/Intake Current",
+                  "_title": "Intake Current"
+                },
+                {
+                  "_type": "Text View",
+                  "_source0": "network_table:///SmartDashboard/Feed Current",
+                  "_title": "Feed Current"
+                },
+                {
+                  "_type": "Text View",
+                  "_source0": "network_table:///SmartDashboard/Shooter Current",
+                  "_title": "Shooter Current"
+                }
+              ]
             }
           },
           "0,4": {
             "size": [
-              2,
-              1
+              8,
+              16
             ],
             "content": {
-              "_type": "Text View",
-              "_source0": "network_table:///SmartDashboard/Left Master Current",
-              "_title": "Left Master Current"
+              "_type": "List Layout",
+              "_title": "Sensors",
+              "Layout/Label position": "LEFT",
+              "_children": [
+                {
+                  "_type": "Text View",
+                  "_source0": "network_table:///SmartDashboard/Drive Distance Inches",
+                  "_title": "Drive Distance Inches"
+                },
+                {
+                  "_type": "Text View",
+                  "_source0": "network_table:///SmartDashboard/Climb Encoder",
+                  "_title": "Climb Encoder"
+                },
+                {
+                  "_type": "Text View",
+                  "_source0": "network_table:///SmartDashboard/Shooter Velocity",
+                  "_title": "Shooter Velocity"
+                },
+                {
+                  "_type": "Text View",
+                  "_source0": "network_table:///SmartDashboard/Drive Avg Encoder",
+                  "_title": "Drive Avg Encoder"
+                },
+                {
+                  "_type": "Text View",
+                  "_source0": "network_table:///SmartDashboard/Drive Left Position",
+                  "_title": "Drive Left Position"
+                },
+                {
+                  "_type": "Text View",
+                  "_source0": "network_table:///SmartDashboard/Drive Right Position",
+                  "_title": "Drive Right Position"
+                },
+                {
+                  "_type": "Text View",
+                  "_source0": "network_table:///SmartDashboard/Left Master Current",
+                  "_title": "Left Master Current"
+                },
+                {
+                  "_type": "Text View",
+                  "_source0": "network_table:///SmartDashboard/Left Follower Current",
+                  "_title": "Left Follower Current"
+                },
+                {
+                  "_type": "Text View",
+                  "_source0": "network_table:///SmartDashboard/Right Master Current",
+                  "_title": "Right Master Current"
+                },
+                {
+                  "_type": "Text View",
+                  "_source0": "network_table:///SmartDashboard/Right Follower Current",
+                  "_title": "Right Follower Current"
+                }
+              ]
             }
           },
-          "2,3": {
+          "15,4": {
             "size": [
-              2,
-              1
+              12,
+              16
             ],
             "content": {
-              "_type": "Text View",
-              "_source0": "network_table:///SmartDashboard/Drive Right Position",
-              "_title": "Drive Right Position"
-            }
-          },
-          "5,0": {
-            "size": [
-              2,
-              1
-            ],
-            "content": {
-              "_type": "Text View",
-              "_source0": "network_table:///SmartDashboard/Voltage",
-              "_title": "Voltage"
-            }
-          },
-          "6,3": {
-            "size": [
-              2,
-              1
-            ],
-            "content": {
-              "_type": "Text View",
-              "_source0": "network_table:///SmartDashboard/Shooter Velocity",
-              "_title": "Shooter Velocity"
-            }
-          },
-          "14,0": {
-            "size": [
-              2,
-              1
-            ],
-            "content": {
-              "_type": "Text View",
-              "_source0": "network_table:///SmartDashboard/Radio Current",
-              "_title": "Radio Current"
-            }
-          },
-          "0,7": {
-            "size": [
-              4,
-              1
-            ],
-            "content": {
-              "_type": "Text View",
-              "_source0": "network_table:///SmartDashboard/Drive Avg Encoder",
-              "_title": "Drive Avg Encoder"
-            }
-          },
-          "26,3": {
-            "size": [
-              2,
-              1
-            ],
-            "content": {
-              "_type": "Text View",
-              "_source0": "network_table:///SmartDashboard/Limelight Valid Target",
-              "_title": "Limelight Valid Target"
-            }
-          },
-          "26,7": {
-            "size": [
-              2,
-              1
-            ],
-            "content": {
-              "_type": "Text View",
-              "_source0": "network_table:///SmartDashboard/Limelight Skew",
-              "_title": "Limelight Skew"
-            }
-          },
-          "11,0": {
-            "size": [
-              3,
-              1
-            ],
-            "content": {
-              "_type": "Text View",
-              "_source0": "network_table:///SmartDashboard/Pneumatic Hub Current",
-              "_title": "Pneumatic Hub Current"
-            }
-          },
-          "2,4": {
-            "size": [
-              2,
-              1
-            ],
-            "content": {
-              "_type": "Text View",
-              "_source0": "network_table:///SmartDashboard/Right Master Current",
-              "_title": "Right Master Current"
-            }
-          },
-          "7,0": {
-            "size": [
-              2,
-              1
-            ],
-            "content": {
-              "_type": "Text View",
-              "_source0": "network_table:///SmartDashboard/Total Current",
-              "_title": "Total Current"
-            }
-          },
-          "16,3": {
-            "size": [
-              2,
-              1
-            ],
-            "content": {
-              "_type": "Text View",
-              "_source0": "network_table:///SmartDashboard/Climb Current",
-              "_title": "Climb Current"
-            }
-          },
-          "2,5": {
-            "size": [
-              2,
-              1
-            ],
-            "content": {
-              "_type": "Text View",
-              "_source0": "network_table:///SmartDashboard/Right Follower Current",
-              "_title": "Right Follower Current"
-            }
-          },
-          "16,0": {
-            "size": [
-              2,
-              1
-            ],
-            "content": {
-              "_type": "Text View",
-              "_source0": "network_table:///SmartDashboard/Gyro Heading",
-              "_title": "Gyro Heading"
-            }
-          },
-          "4,4": {
-            "size": [
-              2,
-              1
-            ],
-            "content": {
-              "_type": "Text View",
-              "_source0": "network_table:///SmartDashboard/Shooter Power",
-              "_title": "Shooter Power"
-            }
-          },
-          "25,0": {
-            "size": [
-              3,
-              1
-            ],
-            "content": {
-              "_type": "Text View",
-              "_source0": "network_table:///SmartDashboard/LimeLight Config",
-              "_title": "LimeLight Config"
-            }
-          },
-          "26,8": {
-            "size": [
-              2,
-              1
-            ],
-            "content": {
-              "_type": "Text View",
-              "_source0": "network_table:///SmartDashboard/Limelight Target Area",
-              "_title": "Limelight Target Area"
-            }
-          },
-          "10,3": {
-            "size": [
-              2,
-              1
-            ],
-            "content": {
-              "_type": "Text View",
-              "_source0": "network_table:///SmartDashboard/Intake Velocity",
-              "_title": "Intake Velocity"
-            }
-          },
-          "0,3": {
-            "size": [
-              2,
-              1
-            ],
-            "content": {
-              "_type": "Text View",
-              "_source0": "network_table:///SmartDashboard/Drive Left Position",
-              "_title": "Drive Left Position"
-            }
-          },
-          "9,0": {
-            "size": [
-              2,
-              1
-            ],
-            "content": {
-              "_type": "Text View",
-              "_source0": "network_table:///SmartDashboard/RoboRio Current",
-              "_title": "RoboRio Current"
-            }
-          },
-          "26,5": {
-            "size": [
-              2,
-              1
-            ],
-            "content": {
-              "_type": "Text View",
-              "_source0": "network_table:///SmartDashboard/Limelight Latency",
-              "_title": "Limelight Latency"
-            }
-          },
-          "26,4": {
-            "size": [
-              2,
-              1
-            ],
-            "content": {
-              "_type": "Text View",
-              "_source0": "network_table:///SmartDashboard/Limelight Y Offset",
-              "_title": "Limelight Y Offset"
-            }
-          },
-          "8,3": {
-            "size": [
-              2,
-              1
-            ],
-            "content": {
-              "_type": "Text View",
-              "_source0": "network_table:///SmartDashboard/Intake Current",
-              "_title": "Intake Current"
-            }
-          },
-          "0,6": {
-            "size": [
-              4,
-              1
-            ],
-            "content": {
-              "_type": "Text View",
-              "_source0": "network_table:///SmartDashboard/Drive Distance Inches",
-              "_title": "Drive Distance Inches"
-            }
-          },
-          "18,3": {
-            "size": [
-              2,
-              1
-            ],
-            "content": {
-              "_type": "Text View",
-              "_source0": "network_table:///SmartDashboard/Climb Encoder",
-              "_title": "Climb Encoder"
+              "_type": "List Layout",
+              "_title": "Commands",
+              "Layout/Label position": "TOP",
+              "_children": [
+                {
+                  "_type": "Basic Subsystem",
+                  "_source0": "network_table:///SmartDashboard/Drive Command",
+                  "_title": "Drive Command"
+                },
+                {
+                  "_type": "Basic Subsystem",
+                  "_source0": "network_table:///SmartDashboard/Intake Command",
+                  "_title": "Intake Command"
+                },
+                {
+                  "_type": "Basic Subsystem",
+                  "_source0": "network_table:///SmartDashboard/Feeder Current Command",
+                  "_title": "Feeder Current Command"
+                },
+                {
+                  "_type": "Basic Subsystem",
+                  "_source0": "network_table:///SmartDashboard/Shooter Command",
+                  "_title": "Shooter Command"
+                },
+                {
+                  "_type": "Basic Subsystem",
+                  "_source0": "network_table:///SmartDashboard/Climb Command",
+                  "_title": "Climb Command"
+                }
+              ]
             }
           }
         }
@@ -442,258 +223,7 @@
         "hgap": 16.0,
         "vgap": 16.0,
         "titleType": 0,
-        "tiles": {
-          "0,0": {
-            "size": [
-              2,
-              4
-            ],
-            "content": {
-              "_type": "Subsystem Layout",
-              "_source0": "network_table:///LiveWindow/subShootSystem",
-              "_title": "subShootSystem",
-              "Layout/Label position": "BOTTOM",
-              "_children": []
-            }
-          },
-          "2,0": {
-            "size": [
-              2,
-              4
-            ],
-            "content": {
-              "_type": "Subsystem Layout",
-              "_source0": "network_table:///LiveWindow/subIntakeSystem",
-              "_title": "subIntakeSystem",
-              "Layout/Label position": "BOTTOM",
-              "_children": []
-            }
-          },
-          "4,0": {
-            "size": [
-              2,
-              4
-            ],
-            "content": {
-              "_type": "Subsystem Layout",
-              "_source0": "network_table:///LiveWindow/Ungrouped",
-              "_title": "Ungrouped",
-              "Layout/Label position": "BOTTOM",
-              "_children": [
-                {
-                  "_type": "PID Controller",
-                  "_source0": "network_table:///LiveWindow/Ungrouped/PIDController[1]",
-                  "_title": "PIDController[1]"
-                },
-                {
-                  "_type": "Differential Drivebase",
-                  "_source0": "network_table:///LiveWindow/Ungrouped/DifferentialDrive[1]",
-                  "_title": "DifferentialDrive[1]",
-                  "Wheels/Number of wheels": 4,
-                  "Wheels/Wheel diameter": 80.0,
-                  "Visuals/Show velocity vectors": true
-                },
-                {
-                  "_type": "PID Controller",
-                  "_source0": "network_table:///LiveWindow/Ungrouped/PIDController[2]",
-                  "_title": "PIDController[2]"
-                },
-                {
-                  "_type": "Boolean Box",
-                  "_source0": "network_table:///LiveWindow/Ungrouped/Solenoid[0,0]/Value",
-                  "_title": "Solenoid[0,0]/Value",
-                  "Colors/Color when true": "#7CFC00FF",
-                  "Colors/Color when false": "#8B0000FF"
-                },
-                {
-                  "_type": "PID Controller",
-                  "_source0": "network_table:///LiveWindow/Ungrouped/PIDController[3]",
-                  "_title": "PIDController[3]"
-                },
-                {
-                  "_type": "Boolean Box",
-                  "_source0": "network_table:///LiveWindow/Ungrouped/PowerDistribution[1]/SwitchableChannel",
-                  "_title": "PowerDistribution[1]/SwitchableChannel",
-                  "Colors/Color when true": "#7CFC00FF",
-                  "Colors/Color when false": "#8B0000FF"
-                },
-                {
-                  "_type": "Gyro",
-                  "_source0": "network_table:///LiveWindow/Ungrouped/navX-Sensor[4]",
-                  "_title": "navX-Sensor[4]",
-                  "Visuals/Major tick spacing": 45.0,
-                  "Visuals/Starting angle": 180.0,
-                  "Visuals/Show tick mark ring": true,
-                  "Visuals/Counter clockwise": false
-                },
-                {
-                  "_type": "Boolean Box",
-                  "_source0": "network_table:///LiveWindow/Ungrouped/Solenoid[0,1]/Value",
-                  "_title": "Solenoid[0,1]/Value",
-                  "Colors/Color when true": "#7CFC00FF",
-                  "Colors/Color when false": "#8B0000FF"
-                },
-                {
-                  "_type": "Text View",
-                  "_source0": "network_table:///LiveWindow/Ungrouped/PowerDistribution[1]/TotalCurrent",
-                  "_title": "PowerDistribution[1]/TotalCurrent"
-                },
-                {
-                  "_type": "Text View",
-                  "_source0": "network_table:///LiveWindow/Ungrouped/PowerDistribution[1]/Voltage",
-                  "_title": "PowerDistribution[1]/Voltage"
-                },
-                {
-                  "_type": "Text View",
-                  "_source0": "network_table:///LiveWindow/Ungrouped/PowerDistribution[1]/Chan10",
-                  "_title": "PowerDistribution[1]/Chan10"
-                },
-                {
-                  "_type": "Text View",
-                  "_source0": "network_table:///LiveWindow/Ungrouped/PowerDistribution[1]/Chan11",
-                  "_title": "PowerDistribution[1]/Chan11"
-                },
-                {
-                  "_type": "Text View",
-                  "_source0": "network_table:///LiveWindow/Ungrouped/PowerDistribution[1]/Chan15",
-                  "_title": "PowerDistribution[1]/Chan15"
-                },
-                {
-                  "_type": "Text View",
-                  "_source0": "network_table:///LiveWindow/Ungrouped/PowerDistribution[1]/Chan14",
-                  "_title": "PowerDistribution[1]/Chan14"
-                },
-                {
-                  "_type": "Text View",
-                  "_source0": "network_table:///LiveWindow/Ungrouped/PowerDistribution[1]/Chan12",
-                  "_title": "PowerDistribution[1]/Chan12"
-                },
-                {
-                  "_type": "Text View",
-                  "_source0": "network_table:///LiveWindow/Ungrouped/PowerDistribution[1]/Chan17",
-                  "_title": "PowerDistribution[1]/Chan17"
-                },
-                {
-                  "_type": "Text View",
-                  "_source0": "network_table:///LiveWindow/Ungrouped/PowerDistribution[1]/Chan18",
-                  "_title": "PowerDistribution[1]/Chan18"
-                },
-                {
-                  "_type": "Text View",
-                  "_source0": "network_table:///LiveWindow/Ungrouped/PowerDistribution[1]/Chan16",
-                  "_title": "PowerDistribution[1]/Chan16"
-                },
-                {
-                  "_type": "Text View",
-                  "_source0": "network_table:///LiveWindow/Ungrouped/PowerDistribution[1]/Chan13",
-                  "_title": "PowerDistribution[1]/Chan13"
-                },
-                {
-                  "_type": "Text View",
-                  "_source0": "network_table:///LiveWindow/Ungrouped/PowerDistribution[1]/Chan0",
-                  "_title": "PowerDistribution[1]/Chan0"
-                },
-                {
-                  "_type": "Text View",
-                  "_source0": "network_table:///LiveWindow/Ungrouped/PowerDistribution[1]/Chan2",
-                  "_title": "PowerDistribution[1]/Chan2"
-                },
-                {
-                  "_type": "Text View",
-                  "_source0": "network_table:///LiveWindow/Ungrouped/PowerDistribution[1]/Chan1",
-                  "_title": "PowerDistribution[1]/Chan1"
-                },
-                {
-                  "_type": "Text View",
-                  "_source0": "network_table:///LiveWindow/Ungrouped/PowerDistribution[1]/Chan4",
-                  "_title": "PowerDistribution[1]/Chan4"
-                },
-                {
-                  "_type": "Text View",
-                  "_source0": "network_table:///LiveWindow/Ungrouped/PowerDistribution[1]/Chan5",
-                  "_title": "PowerDistribution[1]/Chan5"
-                },
-                {
-                  "_type": "Text View",
-                  "_source0": "network_table:///LiveWindow/Ungrouped/PowerDistribution[1]/Chan7",
-                  "_title": "PowerDistribution[1]/Chan7"
-                },
-                {
-                  "_type": "Text View",
-                  "_source0": "network_table:///LiveWindow/Ungrouped/PowerDistribution[1]/Chan8",
-                  "_title": "PowerDistribution[1]/Chan8"
-                },
-                {
-                  "_type": "Text View",
-                  "_source0": "network_table:///LiveWindow/Ungrouped/PowerDistribution[1]/Chan6",
-                  "_title": "PowerDistribution[1]/Chan6"
-                },
-                {
-                  "_type": "Text View",
-                  "_source0": "network_table:///LiveWindow/Ungrouped/PowerDistribution[1]/Chan9",
-                  "_title": "PowerDistribution[1]/Chan9"
-                },
-                {
-                  "_type": "Text View",
-                  "_source0": "network_table:///LiveWindow/Ungrouped/PowerDistribution[1]/Chan3",
-                  "_title": "PowerDistribution[1]/Chan3"
-                }
-              ]
-            }
-          },
-          "6,0": {
-            "size": [
-              2,
-              4
-            ],
-            "content": {
-              "_type": "Subsystem Layout",
-              "_source0": "network_table:///LiveWindow/subLimeLight",
-              "_title": "subLimeLight",
-              "Layout/Label position": "BOTTOM",
-              "_children": []
-            }
-          },
-          "8,0": {
-            "size": [
-              2,
-              4
-            ],
-            "content": {
-              "_type": "Subsystem Layout",
-              "_source0": "network_table:///LiveWindow/subDriveSystem",
-              "_title": "subDriveSystem",
-              "Layout/Label position": "BOTTOM",
-              "_children": []
-            }
-          },
-          "10,0": {
-            "size": [
-              2,
-              4
-            ],
-            "content": {
-              "_type": "Subsystem Layout",
-              "_source0": "network_table:///LiveWindow/subClimbSystem",
-              "_title": "subClimbSystem",
-              "Layout/Label position": "BOTTOM",
-              "_children": []
-            }
-          },
-          "12,0": {
-            "size": [
-              2,
-              4
-            ],
-            "content": {
-              "_type": "Subsystem Layout",
-              "_source0": "network_table:///LiveWindow/subPowerDistributionSystem",
-              "_title": "subPowerDistributionSystem",
-              "Layout/Label position": "BOTTOM",
-              "_children": []
-            }
-          }
-        }
+        "tiles": {}
       }
     }
   ],

@@ -1,5 +1,11 @@
 package frc.robot;
 
+import org.opencv.core.Mat;
+
+import edu.wpi.first.cameraserver.CameraServer;
+import edu.wpi.first.cscore.CvSink;
+import edu.wpi.first.cscore.CvSource;
+import edu.wpi.first.cscore.UsbCamera;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.Command;
@@ -9,28 +15,44 @@ import frc.robot.Constants.DriveSystem;
 public class Robot extends TimedRobot {
   private Command m_autonomousCommand;
   private RobotContainer m_robotContainer;
+  Thread m_visionThread;
 
   @Override
   public void robotInit() {
     m_robotContainer = new RobotContainer();
+    m_visionThread =
+        new Thread(
+            () -> {
+              UsbCamera camera = CameraServer.startAutomaticCapture();
+              camera.setResolution(380, 240);
+              CvSink cvSink = CameraServer.getVideo();
+              CvSource outputStream = CameraServer.putVideo("Rectangle", 380, 240);
+              Mat mat = new Mat();
+              while (!Thread.interrupted()) {
+                if (cvSink.grabFrame(mat) == 0) {
+                  outputStream.notifyError(cvSink.getError());
+                  continue;
+                }
+                outputStream.putFrame(mat);
+              }
+            });
+    m_visionThread.setDaemon(true);
+    m_visionThread.start();
+    /*
     try {
       m_robotContainer.vision.startCameraStreams();
     } catch (Exception e) {
       System.out.println("Unable to start cameras");
-    }
+    }*/
   }
 
   @Override
   public void robotPeriodic() {
     CommandScheduler.getInstance().run();
     
-    SmartDashboard.putData("Current Command", CommandScheduler.getInstance());
-
-    SmartDashboard.putNumber("Feeder Velocity", m_robotContainer.feed.getVelocity());
     SmartDashboard.putData("Feeder Current Command", m_robotContainer.feed);
 
     SmartDashboard.putNumber("Climb Encoder", m_robotContainer.climb.getPosition());    
-    //SmartDashboard.putBoolean("Climb Air", m_robotContainer.air.getClimbSolenoidStatus());
     SmartDashboard.putData("Climb Command", m_robotContainer.climb);
 
     SmartDashboard.putNumber("Drive Left Position", m_robotContainer.drive.getLeftPosition());
@@ -40,12 +62,9 @@ public class Robot extends TimedRobot {
     SmartDashboard.putNumber("Gyro Heading", m_robotContainer.drive.getGyroHeading());
     SmartDashboard.putData("Drive Command", m_robotContainer.drive);
 
-    SmartDashboard.putNumber("Intake Velocity", m_robotContainer.intake.getVelocity());
-    //SmartDashboard.putBoolean("Intake Air", m_robotContainer.air.getIntakeSolenoidStatus());
     SmartDashboard.putData("Intake Command", m_robotContainer.intake);
     
     SmartDashboard.putNumber("Shooter Velocity", m_robotContainer.shoot.getVelocity());
-    SmartDashboard.putNumber("Shooter Power", m_robotContainer.shoot.getPowerValue());
     SmartDashboard.putData("Shooter Command", m_robotContainer.shoot);
   }
 
