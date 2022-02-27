@@ -15,6 +15,7 @@ public class subPowerDistributionSystem extends SubsystemBase {
 
   @Override
   public void periodic() {
+    /*
     SmartDashboard.putNumber("Voltage", pdh.getVoltage());
     SmartDashboard.putNumber("Total Current", pdh.getTotalCurrent());
     SmartDashboard.putNumber("Left Master Current", pdh.getCurrent(PowerSystem.leftDriveMasterId));
@@ -28,5 +29,6 @@ public class subPowerDistributionSystem extends SubsystemBase {
     SmartDashboard.putNumber("RoboRio Current", pdh.getCurrent(PowerSystem.roboRioId));
     SmartDashboard.putNumber("Pneumatic Hub Current", pdh.getCurrent(PowerSystem.phId));
     SmartDashboard.putNumber("Radio Current", pdh.getCurrent(PowerSystem.radioId));
+    */
   }
 }

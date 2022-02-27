@@ -20,7 +20,7 @@ public class Robot extends TimedRobot {
   @Override
   public void robotInit() {
     m_robotContainer = new RobotContainer();
-    m_visionThread =
+    /*m_visionThread =
         new Thread(
             () -> {
               UsbCamera camera = CameraServer.startAutomaticCapture();
@@ -38,7 +38,7 @@ public class Robot extends TimedRobot {
             });
     m_visionThread.setDaemon(true);
     m_visionThread.start();
-    /*
+    
     try {
       m_robotContainer.vision.startCameraStreams();
     } catch (Exception e) {
@@ -49,7 +49,7 @@ public class Robot extends TimedRobot {
   @Override
   public void robotPeriodic() {
     CommandScheduler.getInstance().run();
-    
+    /*
     SmartDashboard.putData("Feeder Current Command", m_robotContainer.feed);
 
     SmartDashboard.putNumber("Climb Encoder", m_robotContainer.climb.getPosition());    
@@ -66,6 +66,7 @@ public class Robot extends TimedRobot {
     
     SmartDashboard.putNumber("Shooter Velocity", m_robotContainer.shoot.getVelocity());
     SmartDashboard.putData("Shooter Command", m_robotContainer.shoot);
+    */
   }
 
   @Override
