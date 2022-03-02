@@ -22,10 +22,10 @@ import frc.robot.subsystems.subFeedSystem;
 import frc.robot.subsystems.subClimbSystem;
 import frc.robot.subsystems.subDriveSystem;
 import frc.robot.subsystems.subIntakeSystem;
+import frc.robot.subsystems.subLEDSystem;
 import frc.robot.subsystems.subPneumaticSystem;
 import frc.robot.subsystems.subPowerDistributionSystem;
 import frc.robot.subsystems.subShootSystem;
-import frc.robot.subsystems.subVisionSystem;
 
 public class RobotContainer {
   SendableChooser<Command> autoChooser = new SendableChooser<>();
@@ -70,7 +70,8 @@ public class RobotContainer {
   public final subShootSystem shoot = new subShootSystem();
   public final subFeedSystem feed = new subFeedSystem();
   public final subPowerDistributionSystem power = new subPowerDistributionSystem();
-  //public final subVisionSystem vision = new subVisionSystem();
+  public final subLEDSystem led = new subLEDSystem();
+  
 
   public RobotContainer() {
     DriverStation.silenceJoystickConnectionWarning(true);

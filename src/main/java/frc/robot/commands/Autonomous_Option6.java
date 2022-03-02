@@ -32,8 +32,6 @@ public class Autonomous_Option6 extends SequentialCommandGroup {
       new cmdDrive_GyroTurnToAngle(_drive, 70),
       // Run intake, lower intake, drive to ball
       new ParallelCommandGroup(
-        new InstantCommand(() -> _intake.runIntake()),
-        new InstantCommand(() -> _air.lowerIntake()),
         new cmdDrive_DriveStraightByEncoder(_drive, 50, 0.3)
       )
     );

@@ -35,6 +35,9 @@ public final class Constants {
         private final static int phPowerPortId = 21;
         private final static int radioPowerPortId = 22;
         private final static int limeLightPowerPortId = 23;
+
+        // LED System
+        private final static int ledPwmPin = 0;
     }
 
     public final static class DriveControllers {
@@ -143,5 +146,10 @@ public final class Constants {
         public final static int phId = HardwareId.phPowerPortId;
         public final static int radioId = HardwareId.radioPowerPortId;
         public final static int limeLightId = HardwareId.limeLightPowerPortId;
+    }
+
+    public final static class LEDSystem {
+        public final static int pwmPin = HardwareId.ledPwmPin;
+        public final static int ledCount = 60;
     }
 }
