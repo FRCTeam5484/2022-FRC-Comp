@@ -2,20 +2,27 @@ package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants.PneumaticSystem;
+import edu.wpi.first.wpilibj.Compressor;
+import edu.wpi.first.wpilibj.PneumaticHub;
 import edu.wpi.first.wpilibj.PneumaticsModuleType;
 import edu.wpi.first.wpilibj.Solenoid;
 
 public class subPneumaticSystem extends SubsystemBase {
-  private Solenoid intakeSolenoid = new Solenoid(PneumaticsModuleType.CTREPCM, PneumaticSystem.IntakeSolenoid);
-  private Solenoid climbSolenoid = new Solenoid(PneumaticsModuleType.CTREPCM, PneumaticSystem.ClimbSolenoid);
+  private PneumaticHub m_ph = new PneumaticHub(1);
+  private Solenoid intakeSolenoid = new Solenoid(PneumaticsModuleType.REVPH, PneumaticSystem.IntakeSolenoid);
+  private Solenoid climbSolenoid = new Solenoid(PneumaticsModuleType.REVPH, PneumaticSystem.ClimbSolenoid);
 
   public subPneumaticSystem() {
     lowerClimb();
     raiseIntake();
+
   }
 
   @Override
-  public void periodic() {}
+  public void periodic() {
+    System.out.println(m_ph.getPressureSwitch());
+    m_ph.enableCompressorDigital();
+  }
 
   //#region Solenoid Methods
   public void lowerIntake(){
