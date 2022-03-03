@@ -94,7 +94,7 @@ public final class Constants {
         // Ids
         public final static int IndexerId = HardwareId.IndexerMotor;
         // Inversion
-        public final static boolean IndexerInverted = false;
+        public final static boolean IndexerInverted = true;
         // Speed
         public final static double IndexerSpeed = 0.2;
     }
