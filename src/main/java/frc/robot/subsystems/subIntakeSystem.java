@@ -11,7 +11,6 @@ import frc.robot.Constants.*;
 
 public class subIntakeSystem extends SubsystemBase {
   public CANSparkMax intakeMotor = new CANSparkMax(IntakeSystem.IntakeId, MotorType.kBrushless);
-  public CANSparkMax indexerMotor = new CANSparkMax(IntakeSystem.IndexerId, MotorType.kBrushless);
 
   public subIntakeSystem() {
     SetMotorSettings();
@@ -26,25 +25,17 @@ public class subIntakeSystem extends SubsystemBase {
     intakeMotor.setSmartCurrentLimit(15);
     intakeMotor.setIdleMode(IdleMode.kCoast);
     intakeMotor.burnFlash();
-
-    indexerMotor.restoreFactoryDefaults();
-    indexerMotor.setInverted(IntakeSystem.IndexerInverted);
-    indexerMotor.setSmartCurrentLimit(15);
-    indexerMotor.setIdleMode(IdleMode.kCoast);
-    indexerMotor.burnFlash();
   }
 
   public void TeleOp(XboxController driver){
     if(driver.getLeftTriggerAxis() > 0.1){
       runIntake();
-      runIndexer();
     }
     else if (driver.getRightTriggerAxis() > 0.1) {
       runIntakeReverse();
     }
     else{
       stopIntake();
-      stopIndexer();
     }
   }
   public void runIntake(){
@@ -57,13 +48,5 @@ public class subIntakeSystem extends SubsystemBase {
 
   public void stopIntake(){
     intakeMotor.stopMotor();
-  }
-
-  public void runIndexer(){
-    indexerMotor.set(IntakeSystem.IndexerSpeed);
-  }
-
-  public void stopIndexer(){
-    indexerMotor.stopMotor();
   }
 }

@@ -19,6 +19,7 @@ import frc.robot.commands.Autonomous_Option6;
 import frc.robot.commands.cmdIntake_Lower;
 import frc.robot.commands.cmdIntake_Raise;
 import frc.robot.subsystems.subFeedSystem;
+import frc.robot.subsystems.subIndexerSystem;
 import frc.robot.subsystems.subClimbSystem;
 import frc.robot.subsystems.subDriveSystem;
 import frc.robot.subsystems.subIntakeSystem;
@@ -71,6 +72,7 @@ public class RobotContainer {
   public final subFeedSystem feed = new subFeedSystem();
   public final subPowerDistributionSystem power = new subPowerDistributionSystem();
   public final subLEDSystem led = new subLEDSystem();
+  public final subIndexerSystem indexer = new subIndexerSystem();
   
 
   public RobotContainer() {
@@ -105,8 +107,8 @@ public class RobotContainer {
       .whenReleased(new InstantCommand(() -> air.lowerClimb(), air));
 
     driverOne_LeftTrigger
-      .whenActive(new cmdIntake_Lower(air, intake))
-      .whenInactive(new cmdIntake_Raise(air, intake));
+      .whenActive(new cmdIntake_Lower(air, intake, indexer))
+      .whenInactive(new cmdIntake_Raise(air, intake, indexer));
 
     driverOne_RightTrigger
       .whenActive(new InstantCommand(() -> intake.runIntakeReverse(), intake))

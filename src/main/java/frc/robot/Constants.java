@@ -84,12 +84,18 @@ public final class Constants {
     public final static class IntakeSystem {
         // Ids
         public final static int IntakeId = HardwareId.IntakeMotor;
-        public final static int IndexerId = HardwareId.IndexerMotor;
         // Inversion
         public final static boolean IntakeInverted = true;
-        public final static boolean IndexerInverted = false;
         // Speed
         public final static double IntakeSpeed = 1;
+    }
+
+    public final static class IndexerSystem {
+        // Ids
+        public final static int IndexerId = HardwareId.IndexerMotor;
+        // Inversion
+        public final static boolean IndexerInverted = false;
+        // Speed
         public final static double IndexerSpeed = 0.2;
     }
     
