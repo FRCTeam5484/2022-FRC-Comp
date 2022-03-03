@@ -51,7 +51,7 @@ public class Robot extends TimedRobot {
       m_autonomousCommand.schedule();
     }
 
-    m_robotContainer.led.team5484();
+    m_robotContainer.led.green();
   }
 
   @Override
@@ -70,7 +70,9 @@ public class Robot extends TimedRobot {
   }
 
   @Override
-  public void teleopPeriodic() {}
+  public void teleopPeriodic() {
+    m_robotContainer.led.team5484();
+  }
 
   @Override
   public void testInit() { }
