@@ -15,6 +15,7 @@ public final class Constants {
         private final static int IntakeMotor = 7;
         private final static int ClimbMotor = 6;
         private final static int ShooterMotor = 8;
+        private final static int IndexerMotor = 9;
 
         // Pneumatic 
         private final static int pneumaticHubId = 1;
@@ -83,10 +84,13 @@ public final class Constants {
     public final static class IntakeSystem {
         // Ids
         public final static int IntakeId = HardwareId.IntakeMotor;
+        public final static int IndexerId = HardwareId.IndexerMotor;
         // Inversion
         public final static boolean IntakeInverted = true;
+        public final static boolean IndexerInverted = false;
         // Speed
         public final static double IntakeSpeed = 1;
+        public final static double IndexerSpeed = 0.2;
     }
     
     public final static class ShooterSystem {
