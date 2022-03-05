@@ -125,8 +125,7 @@ public final class Constants {
         // Speed
         public final static double ClimbSpeed = 1;
         // Limits
-        //public final static int ClimbEncoderTopLimitWhenDown = 151;
-        //public final static int ClimbEncoderTopLimitWhenUp = 155;
+        public final static int ClimbEncoderTopLimitWhenUp = 144;
         public final static int ClimbEncoderTopLimit = 148;
         public final static int ClimbEncoderBottomLimit = -14;
     }

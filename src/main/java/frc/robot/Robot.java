@@ -24,6 +24,7 @@ public class Robot extends TimedRobot {
   @Override
   public void robotPeriodic() {
     CommandScheduler.getInstance().run();
+    SmartDashboard.putNumber("Climb Encoder", m_robotContainer.climb.getPosition());
   }
 
   @Override

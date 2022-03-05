@@ -40,57 +40,19 @@ public class subClimbSystem extends SubsystemBase {
 
   public void TeleOp(final XboxController driver, boolean climbIsUp){
     if(driver.getRightTriggerAxis() > 0.5){
-      climbMotor.set(-driver.getLeftY());
-    }
-    else{
-      climbMotor.stopMotor();
-    }
-    /*
-    // If driver is holding right trigger, enable climb
-    if(driver.getRightTriggerAxis() > 0.5){
-      double driverCommand = driver.getLeftY() > 0.1 || driver.getLeftY() < -0.1 ? -driver.getLeftY() : 0.0;
-      if(driverCommand > 0 && getPosition() >= ClimbSystem.ClimbEncoderTopLimit){
-        climbMotor.stopMotor();
-        setRumble(driver, 1);
-      }
-      else if (driverCommand < 0 && getPosition() <= ClimbSystem.ClimbEncoderBottomLimit){
-        climbMotor.stopMotor();
-        setRumble(driver, 1);
-      }
-      else{
-        climbMotor.set(driverCommand);
-      }
-    }
-    else{
-      climbMotor.stopMotor();
-    }
-    */
-    /* **************************************************************************************** 
-       This was used when climb was out of spec.  Do not delete incase we need it in the future
-       ****************************************************************************************
-
-    // If Climb is up and climb is over 5' 6", auto pull it down.
-    if(climbIsUp && getClimbEncoderPosition() > ClimbSystem.ClimbEncoderTopLimitWhenUp){
-      climbMotor.set(-0.5);
-    }
-    // If driver is holding right trigger, enable climb
-    else if(driver.getRightTriggerAxis() > 0.5){
       // Get climb speed value from driver left Y stick
       double driverCommand = driver.getLeftY() > 0.1 || driver.getLeftY() < -0.1 ? -driver.getLeftY() : 0.0;
       // If climb is up and request is overdriving top limit up, stop motor
-      if(climbIsUp && driverCommand > 0 && getClimbEncoderPosition() >= ClimbSystem.ClimbEncoderTopLimitWhenUp){
+      if(climbIsUp && driverCommand > 0 && getPosition() >= ClimbSystem.ClimbEncoderTopLimitWhenUp){
         climbMotor.stopMotor();
-        setRumble(driver, 1);
       }
       // If Climb is down and request is overdriving top limit down, stop motor
-      else if(!climbIsUp && driverCommand > 0 && getClimbEncoderPosition() >= ClimbSystem.ClimbEncoderTopLimitWhenDown){
+      else if(!climbIsUp && driverCommand > 0 && getPosition() >= ClimbSystem.ClimbEncoderTopLimit){
         climbMotor.stopMotor();
-        setRumble(driver, 1);
       }
       // If request is overdriving going down, stop motor
-      else if (driverCommand < 0 && getClimbEncoderPosition() <= ClimbSystem.ClimbEncoderBottomLimit){
+      else if (driverCommand < 0 && getPosition() <= ClimbSystem.ClimbEncoderBottomLimit){
         climbMotor.stopMotor();
-        setRumble(driver, 1);
       }
       // Else take command and move or stop lift
       else{
@@ -100,7 +62,6 @@ public class subClimbSystem extends SubsystemBase {
     else{
       climbMotor.stopMotor();
     }
-    */
   }
 
   public void setRumble(XboxController driver, double secs){
