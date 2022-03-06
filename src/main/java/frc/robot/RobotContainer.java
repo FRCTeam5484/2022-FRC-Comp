@@ -119,6 +119,9 @@ public class RobotContainer {
     climb.setDefaultCommand(new RunCommand(() -> climb.TeleOp(driverTwo, air.getClimbSolenoidStatus()), climb));
     //shoot.setDefaultCommand(new RunCommand(() -> shoot.TeleOp(driverTwo), shoot));
 
+    driverTwo_LeftTrigger
+      .whenActive(new RunCommand(() -> shoot.setShooterReversed(), shoot))
+      .whenInactive(new InstantCommand(() -> shoot.stopShooter(), shoot));
     driverTwo_Y
       //.whenPressed(new cmdShooter_HighGoalSpeed(shoot))  
       .whenPressed(new RunCommand(() -> shoot.setShooterToHighGoal(), shoot))
