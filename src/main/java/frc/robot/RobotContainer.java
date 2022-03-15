@@ -18,6 +18,7 @@ import frc.robot.commands.Autonomous_Option5;
 import frc.robot.commands.Autonomous_Option6;
 import frc.robot.commands.cmdIntake_Lower;
 import frc.robot.commands.cmdIntake_Raise;
+import frc.robot.commands.cmdShooter_UnJam;
 import frc.robot.subsystems.subFeedSystem;
 import frc.robot.subsystems.subIndexerSystem;
 import frc.robot.subsystems.subClimbSystem;
@@ -120,8 +121,7 @@ public class RobotContainer {
     //shoot.setDefaultCommand(new RunCommand(() -> shoot.TeleOp(driverTwo), shoot));
 
     driverTwo_LeftTrigger
-      .whenActive(new RunCommand(() -> shoot.setShooterReversed(), shoot))
-      .whenInactive(new InstantCommand(() -> shoot.stopShooter(), shoot));
+      .whenActive(new cmdShooter_UnJam(shoot, feed));
     driverTwo_Y
       //.whenPressed(new cmdShooter_HighGoalSpeed(shoot))  
       .whenPressed(new RunCommand(() -> shoot.setShooterToHighGoal(), shoot))

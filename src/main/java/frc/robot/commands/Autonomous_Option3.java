@@ -16,7 +16,7 @@ public class Autonomous_Option3 extends SequentialCommandGroup {
       new ParallelCommandGroup(
         new InstantCommand(() -> _intake.runIntake()),
         new InstantCommand(() -> _air.lowerIntake()),
-        new cmdDrive_DriveStraightByEncoder(_drive, 35, 0.6)
+        new cmdDrive_DriveStraightByEncoder(_drive, 35, 0.4)
       ),
       // Stop intake, raise intake, drive forwards
       new InstantCommand(() -> _drive.setDriveLocked()),

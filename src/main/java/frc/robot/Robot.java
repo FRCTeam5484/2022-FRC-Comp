@@ -20,6 +20,7 @@ public class Robot extends TimedRobot {
   public void robotPeriodic() {
     CommandScheduler.getInstance().run();
     SmartDashboard.putNumber("Climb Encoder", m_robotContainer.climb.getPosition());
+    SmartDashboard.putNumber("Gyro", m_robotContainer.drive.getGyroHeading());
   }
 
   @Override

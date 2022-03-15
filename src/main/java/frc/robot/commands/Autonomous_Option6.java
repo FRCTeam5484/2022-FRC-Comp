@@ -16,14 +16,14 @@ public class Autonomous_Option6 extends SequentialCommandGroup {
       new ParallelCommandGroup(
         new InstantCommand(() -> _intake.runIntake()),
         new InstantCommand(() -> _air.lowerIntake()),
-        new cmdDrive_DriveStraightByEncoder(_drive, 28, 0.3)
+        new cmdDrive_DriveStraightByEncoder(_drive, 25, 0.4).withTimeout(6)
       ),
       // Stop drive, stop intake, raise intake, drive forward
       new InstantCommand(() -> _drive.setDriveLocked()),
       new ParallelCommandGroup(
         new InstantCommand(() -> _intake.stopIntake()),
         new InstantCommand(() -> _air.raiseIntake()),
-        new cmdDrive_DriveStraightByEncoder(_drive, 25, -0.3)
+        new cmdDrive_DriveStraightByEncoder(_drive, 20, -0.5)
       ),
       // Stop drive, shoot balls, turn robot
       new InstantCommand(() -> _drive.setDriveLocked()),
@@ -32,7 +32,7 @@ public class Autonomous_Option6 extends SequentialCommandGroup {
       new cmdDrive_GyroTurnToAngle(_drive, 70),
       // Run intake, lower intake, drive to ball
       new ParallelCommandGroup(
-        new cmdDrive_DriveStraightByEncoder(_drive, 50, 0.3)
+        new cmdDrive_DriveStraightByEncoder(_drive, 50, 0.5)
       )
     );
   }
