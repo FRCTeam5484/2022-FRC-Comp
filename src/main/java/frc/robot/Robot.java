@@ -1,6 +1,5 @@
 package frc.robot;
 
-import edu.wpi.first.cameraserver.CameraServer;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.Command;
@@ -37,7 +36,7 @@ public class Robot extends TimedRobot {
 
   @Override
   public void disabledPeriodic() {
-    m_robotContainer.led.rainbow();
+    //m_robotContainer.led.rainbow();
   }
 
   @Override
@@ -48,7 +47,7 @@ public class Robot extends TimedRobot {
       m_autonomousCommand.schedule();
     }
 
-    m_robotContainer.led.green();
+    //m_robotContainer.led.green();
   }
 
   @Override
@@ -68,7 +67,7 @@ public class Robot extends TimedRobot {
 
   @Override
   public void teleopPeriodic() {
-    m_robotContainer.led.team5484();
+    //m_robotContainer.led.team5484();
   }
 
   @Override

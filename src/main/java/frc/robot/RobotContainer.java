@@ -16,6 +16,8 @@ import frc.robot.commands.Autonomous_Option3;
 import frc.robot.commands.Autonomous_Option4;
 import frc.robot.commands.Autonomous_Option5;
 import frc.robot.commands.Autonomous_Option6;
+import frc.robot.commands.cmdAuto_AlignGroup;
+import frc.robot.commands.cmdAuto_AlignToTarget;
 import frc.robot.commands.cmdIntake_Lower;
 import frc.robot.commands.cmdIntake_Raise;
 import frc.robot.commands.cmdShooter_UnJam;
@@ -25,6 +27,7 @@ import frc.robot.subsystems.subClimbSystem;
 import frc.robot.subsystems.subDriveSystem;
 import frc.robot.subsystems.subIntakeSystem;
 import frc.robot.subsystems.subLEDSystem;
+import frc.robot.subsystems.subLimeLightSystem;
 import frc.robot.subsystems.subPneumaticSystem;
 import frc.robot.subsystems.subPowerDistributionSystem;
 import frc.robot.subsystems.subShootSystem;
@@ -72,8 +75,9 @@ public class RobotContainer {
   public final subShootSystem shoot = new subShootSystem();
   public final subFeedSystem feed = new subFeedSystem();
   public final subPowerDistributionSystem power = new subPowerDistributionSystem();
-  public final subLEDSystem led = new subLEDSystem();
+  //public final subLEDSystem led = new subLEDSystem();
   public final subIndexerSystem indexer = new subIndexerSystem();
+  public final subLimeLightSystem lime = new subLimeLightSystem();
   
 
   public RobotContainer() {
@@ -114,6 +118,10 @@ public class RobotContainer {
     driverOne_RightTrigger
       .whenActive(new InstantCommand(() -> intake.runIntakeReverse(), intake))
       .whenInactive(new InstantCommand(() -> intake.stopIntake(), intake));
+
+    driverOne_A
+      .whenPressed(new cmdAuto_AlignGroup(drive, lime))
+      .whenReleased(new InstantCommand(() -> lime.setToDriverMode()));
     } 
 
   private void DriverTwoFunctions() {   

@@ -80,6 +80,10 @@ public class subDriveSystem extends SubsystemBase {
     driveTrain.arcadeDrive(MathUtil.clamp(targetSpeed, DriveSystem.AutoMinSpeed, DriveSystem.AutoMaxSpeed), 0);
   }
 
+  public void autoDrive(double driveSpeed, double turnSpeed){
+    driveTrain.arcadeDrive(driveSpeed, turnSpeed);
+  }
+
   public void setDriveLocked() {
     stopDrive();
     leftDriveMaster.setIdleMode(IdleMode.kBrake);

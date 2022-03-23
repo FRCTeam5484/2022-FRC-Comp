@@ -161,4 +161,15 @@ public final class Constants {
         public final static int pwmPin = HardwareId.ledPwmPin;
         public final static int ledCount = 60;
     }
+
+    public final static class LimeLightSystem {
+        public final static double tx = -4.72;
+        public final static double ty = 9.23;
+        public final static double ta = 1.5;
+
+        public final static double STEER_K = 0.3;
+        public final static double DRIVE_K = -0.3;
+        public final static double MAX_DRIVE = 0.5;
+        public final static double MIN_DRIVE = 0.2;
+    }
 }
