@@ -9,8 +9,8 @@ public class cmdAuto_AlignGroup extends SequentialCommandGroup {
   public cmdAuto_AlignGroup(subDriveSystem drive, subLimeLightSystem lime) {
     addCommands(
       new InstantCommand(() -> lime.setToAutoTargetMode()),
-      new cmdAuto_AlignToTarget(drive, lime),
-      new cmdAuto_DriveToTarget(drive, lime)
+      new cmdAuto_AlignToTarget(drive, lime)
+      //new cmdAuto_DriveToTarget(drive, lime)
     );
   }
 }

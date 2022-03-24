@@ -120,7 +120,8 @@ public class RobotContainer {
       .whenInactive(new InstantCommand(() -> intake.stopIntake(), intake));
 
     driverOne_A
-      .whenPressed(new cmdAuto_AlignGroup(drive, lime))
+      .whenPressed(new InstantCommand(()-> lime.setToAutoTargetMode()))
+      .whileHeld(new cmdAuto_AlignToTarget(drive, lime))
       .whenReleased(new InstantCommand(() -> lime.setToDriverMode()));
     } 
 
