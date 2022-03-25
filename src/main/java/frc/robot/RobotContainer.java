@@ -89,11 +89,11 @@ public class RobotContainer {
 
   private void AddAutoCommands(){
     autoChooser.setDefaultOption("Option 1 - Shoot, Move", new Autonomous_Option1(drive, feed, shoot));  
-    autoChooser.addOption("Option 2 - Shoot, Grab, Shoot, Move", new Autonomous_Option2(drive, feed, intake, air, shoot));
-    autoChooser.addOption("Option 3 - Grab, Shoot 2, Move", new Autonomous_Option3(drive, feed, intake, air, shoot));
-    autoChooser.addOption("Option 4 - Grab, Shoot 2, Turn, Move, Grab, Move, Turn, Shoot 1", new Autonomous_Option4(drive, feed, intake, air, shoot));
+    autoChooser.addOption("Option 2 - Shoot, Grab, Shoot, Move", new Autonomous_Option2(drive, feed, intake, air, shoot, lime));
+    autoChooser.addOption("Option 3 - Grab, Shoot 2, Move", new Autonomous_Option3(drive, feed, intake, air, shoot, lime));
+    autoChooser.addOption("Option 4 - Grab, Shoot 2, Turn, Move, Grab, Move, Turn, Shoot 1", new Autonomous_Option4(drive, feed, intake, air, shoot, lime));
     autoChooser.addOption("Option 5 - Move Off Line", new Autonomous_Option5(drive));
-    autoChooser.addOption("Option 6 - Grab, Shoot 2, Turn, Move", new Autonomous_Option6(drive, feed, intake, air, shoot));
+    autoChooser.addOption("Option 6 - Grab, Shoot 2, Turn, Move", new Autonomous_Option6(drive, feed, intake, air, shoot, lime));
     SmartDashboard.putData("Autonomous", autoChooser);
   }
 

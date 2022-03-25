@@ -6,11 +6,12 @@ import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
 import frc.robot.subsystems.subFeedSystem;
 import frc.robot.subsystems.subDriveSystem;
 import frc.robot.subsystems.subIntakeSystem;
+import frc.robot.subsystems.subLimeLightSystem;
 import frc.robot.subsystems.subPneumaticSystem;
 import frc.robot.subsystems.subShootSystem;
 
 public class Autonomous_Option6 extends SequentialCommandGroup {
-  public Autonomous_Option6(subDriveSystem _drive, subFeedSystem _feed, subIntakeSystem _intake, subPneumaticSystem _air, subShootSystem _shooter) {
+  public Autonomous_Option6(subDriveSystem _drive, subFeedSystem _feed, subIntakeSystem _intake, subPneumaticSystem _air, subShootSystem _shooter, subLimeLightSystem _lime) {
     addCommands(
       // Run intake, lower intake, drive backwards and pickup ball
       new ParallelCommandGroup(
@@ -27,6 +28,7 @@ public class Autonomous_Option6 extends SequentialCommandGroup {
       ),
       // Stop drive, shoot balls, turn robot
       new InstantCommand(() -> _drive.setDriveLocked()),
+      new cmdAuto_AlignToTarget(_drive, _lime).withTimeout(2),
       new cmdShooter_AutoShootHighGoal(_shooter, _feed, 3),
       new InstantCommand(() -> _drive.ResetGyro()),
       new cmdDrive_GyroTurnToAngle(_drive, 70),
