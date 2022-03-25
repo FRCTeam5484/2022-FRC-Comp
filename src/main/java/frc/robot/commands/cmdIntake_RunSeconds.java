@@ -36,6 +36,6 @@ public class cmdIntake_RunSeconds extends CommandBase {
 
   @Override
   public boolean isFinished() {
-    return time.get() > 1 ? true : false;
+    return time.get() > 0.5 ? true : false;
   }
 }

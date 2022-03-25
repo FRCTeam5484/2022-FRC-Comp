@@ -19,7 +19,7 @@ public class subIntakeSystem extends SubsystemBase {
   @Override
   public void periodic() {}
 
-  private void SetMotorSettings() {
+  public void SetMotorSettings() {
     intakeMotor.restoreFactoryDefaults();
     intakeMotor.setInverted(IntakeSystem.IntakeInverted);
     intakeMotor.setSmartCurrentLimit(30);

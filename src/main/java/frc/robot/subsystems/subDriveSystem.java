@@ -31,7 +31,7 @@ public class subDriveSystem extends SubsystemBase {
   @Override
   public void periodic() {}
 
-  private void SetMotorSettings() {
+  public void SetMotorSettings() {
     leftDriveMaster.restoreFactoryDefaults();
     leftDriveSlave.restoreFactoryDefaults();
 

@@ -16,7 +16,7 @@ public class subIndexerSystem extends SubsystemBase {
   @Override
   public void periodic() { }
 
-  private void SetMotorSettings() {
+  public void SetMotorSettings() {
     indexerMotor.restoreFactoryDefaults();
     indexerMotor.setInverted(IndexerSystem.IndexerInverted);
     indexerMotor.setSmartCurrentLimit(15);

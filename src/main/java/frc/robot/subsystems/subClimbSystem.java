@@ -22,7 +22,7 @@ public class subClimbSystem extends SubsystemBase {
   @Override
   public void periodic() {}
 
-  private void SetMotorSettings() {
+  public void SetMotorSettings() {
     climbMotor.restoreFactoryDefaults();
     climbMotor.setSmartCurrentLimit(40);
     climbMotor.setInverted(ClimbSystem.ClimbInverted);

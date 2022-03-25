@@ -17,7 +17,7 @@ public class Autonomous_Option4 extends SequentialCommandGroup {
       new ParallelCommandGroup(
         new InstantCommand(() -> _intake.runIntake()),
         new InstantCommand(() -> _air.lowerIntake()),
-        new cmdDrive_DriveStraightByEncoder(_drive, 20, 0.5).withTimeout(4)
+        new cmdDrive_DriveStraightByEncoder(_drive, 22, 0.5).withTimeout(4)
       ),
       // Stop drive, stop intake, raise intake, drive forward
       new InstantCommand(() -> _drive.setDriveLocked()),
@@ -43,7 +43,7 @@ public class Autonomous_Option4 extends SequentialCommandGroup {
       new ParallelCommandGroup(
         new InstantCommand(() -> _intake.stopIntake()),
         new InstantCommand(() -> _air.raiseIntake()),
-        new cmdDrive_DriveStraightByEncoder(_drive, 38, -0.5)
+        new cmdDrive_DriveStraightByEncoder(_drive, 35, -0.5)
       ),
       // Turn robot, shoot balls, turn robot drive out.
       new InstantCommand(() -> _drive.ResetGyro()),

@@ -19,7 +19,7 @@ public class subFeedSystem extends SubsystemBase {
   @Override
   public void periodic() {}
 
-  private void SetMotorSettings() {
+  public void SetMotorSettings() {
     feedMotor.restoreFactoryDefaults();
     feedMotor.setInverted(ShooterSystem.BallFeedInverted);
     feedMotor.setIdleMode(IdleMode.kBrake);
