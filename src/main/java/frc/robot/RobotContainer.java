@@ -105,7 +105,9 @@ public class RobotContainer {
       .whenReleased(new InstantCommand(() -> drive.setDriveUnlocked(), drive));
 
     driverOne_LeftBumper
-      .whenPressed(new InstantCommand(() -> air.toggleIntake(), air));
+      .whenPressed(new InstantCommand(() -> air.raiseClimb(), air))
+      .whenReleased(new InstantCommand(() -> air.lowerClimb(), air));
+      
     
     driverOne_RightBumper
       .whenPressed(new InstantCommand(() -> air.raiseClimb(), air))
