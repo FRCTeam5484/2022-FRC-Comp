@@ -16,14 +16,14 @@ public class Autonomous_Option4 extends SequentialCommandGroup {
       new ParallelCommandGroup(
         new InstantCommand(() -> _intake.runIntake()),
         new InstantCommand(() -> _air.lowerIntake()),
-        new cmdDrive_DriveStraightByEncoder(_drive, 25, 0.4).withTimeout(6)
+        new cmdDrive_DriveStraightByEncoder(_drive, 20, 0.5).withTimeout(4)
       ),
       // Stop drive, stop intake, raise intake, drive forward
       new InstantCommand(() -> _drive.setDriveLocked()),
       new ParallelCommandGroup(
         new InstantCommand(() -> _intake.stopIntake()),
         new InstantCommand(() -> _air.raiseIntake()),
-        new cmdDrive_DriveStraightByEncoder(_drive, 25, -0.3)
+        new cmdDrive_DriveStraightByEncoder(_drive, 20, -0.5)
       ),
       // Stop drive, shoot balls, turn robot
       new InstantCommand(() -> _drive.setDriveLocked()),
@@ -34,14 +34,14 @@ public class Autonomous_Option4 extends SequentialCommandGroup {
       new ParallelCommandGroup(
         new InstantCommand(() -> _intake.runIntake()),
         new InstantCommand(() -> _air.lowerIntake()),
-        new cmdDrive_DriveStraightByEncoder(_drive, 50, 0.3)
+        new cmdDrive_DriveStraightByEncoder(_drive, 50, 0.5)
       ),
       // stop drive, stop intake, raise intake, drive forward
       new InstantCommand(() -> _drive.setDriveLocked()),
       new ParallelCommandGroup(
         new InstantCommand(() -> _intake.stopIntake()),
         new InstantCommand(() -> _air.raiseIntake()),
-        new cmdDrive_DriveStraightByEncoder(_drive, 38, -0.3)
+        new cmdDrive_DriveStraightByEncoder(_drive, 38, -0.5)
       ),
       // Turn robot, shoot balls, turn robot drive out.
       new InstantCommand(() -> _drive.ResetGyro()),
