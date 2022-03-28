@@ -3,27 +3,15 @@ package frc.robot.subsystems;
 import edu.wpi.first.networktables.NetworkTable;
 import edu.wpi.first.networktables.NetworkTableEntry;
 import edu.wpi.first.networktables.NetworkTableInstance;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants.LimeLightSystem;
 
 public class subLimeLightSystem extends SubsystemBase {
   private NetworkTable networkTable;
   private NetworkTableEntry yEntry;
-  private NetworkTableEntry aEntry;
-  private NetworkTableEntry lEntry;
   private NetworkTableEntry vEntry;
-  private NetworkTableEntry sEntry;
   private NetworkTableEntry xEntry;
-  private NetworkTableEntry tshortEntry;
-  private NetworkTableEntry tlongEntry;
-  private NetworkTableEntry thorEntry;
-  private NetworkTableEntry tvertEntry;
-  private NetworkTableEntry getpipeEntry;
-  private NetworkTableEntry camtranEntry;
-  private NetworkTableEntry ledModeEntry;
   private NetworkTableEntry pipelineEntry;
-  private NetworkTableEntry camModeEntry;
   double ty;
   double ta;
   double tl;
