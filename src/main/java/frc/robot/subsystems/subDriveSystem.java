@@ -5,11 +5,15 @@ import com.revrobotics.CANSparkMax;
 import com.revrobotics.CANSparkMax.IdleMode;
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 import edu.wpi.first.math.MathUtil;
+import edu.wpi.first.math.controller.PIDController;
 import edu.wpi.first.wpilibj.SPI;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import edu.wpi.first.wpilibj.motorcontrol.MotorControllerGroup;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
+import edu.wpi.first.math.filter.MedianFilter;
+import edu.wpi.first.wpilibj.AnalogInput;
 import frc.robot.Constants.*;
 
 public class subDriveSystem extends SubsystemBase {
@@ -21,6 +25,10 @@ public class subDriveSystem extends SubsystemBase {
   public MotorControllerGroup leftDrive = new MotorControllerGroup(leftDriveMaster, leftDriveSlave);
   public MotorControllerGroup rightDrive = new MotorControllerGroup(rightDriveMaster, rightDriveSlave);
   private DifferentialDrive driveTrain = new DifferentialDrive(leftDrive, rightDrive);
+  private PIDController targetPID = new PIDController(DriveSystem.TurnPValue, DriveSystem.TurnIValue, DriveSystem.TurnDValue);
+  private final MedianFilter distancefilter = new MedianFilter(5);
+  private final AnalogInput distanceSensor = new AnalogInput(DriveSystem.UltrasonicId);
+  private final PIDController distancePID = new PIDController(DriveSystem.DrivePValue, DriveSystem.DriveIValue, DriveSystem.DriveDValue);
   
   public subDriveSystem() {
     SetMotorSettings();
@@ -29,7 +37,9 @@ public class subDriveSystem extends SubsystemBase {
   public AHRS gyro = new AHRS(SPI.Port.kMXP);
 
   @Override
-  public void periodic() {}
+  public void periodic() {
+    SmartDashboard.putNumber("Distance", distanceSensor.getVoltage());
+  }
 
   public void SetMotorSettings() {
     leftDriveMaster.restoreFactoryDefaults();
@@ -82,6 +92,30 @@ public class subDriveSystem extends SubsystemBase {
 
   public void autoDrive(double driveSpeed, double turnSpeed){
     driveTrain.arcadeDrive(driveSpeed, turnSpeed);
+  }
+
+  public boolean autoTargetAlign(double txValue){
+     targetPID.setTolerance(0.5);
+     double output = targetPID.calculate(txValue, 0);
+     if(!targetPID.atSetpoint()){
+       autoTurn(-output);
+     }
+     else{
+       stopDrive();
+     }
+     return targetPID.atSetpoint();
+  }
+
+  public boolean autoMoveToTargetDistance(){
+    distancePID.setTolerance(0.5);
+    double output = distancePID.calculate(distancefilter.calculate(distanceSensor.getVoltage()), DriveSystem.ShootDistanceVoltage);
+    if(!distancePID.atSetpoint()){
+      autoDriveByPower(-output);
+    }
+    else{
+      stopDrive();
+    }
+    return distancePID.atSetpoint();
   }
 
   public void setDriveLocked() {

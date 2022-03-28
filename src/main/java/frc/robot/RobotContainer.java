@@ -16,7 +16,6 @@ import frc.robot.commands.Autonomous_Option3;
 import frc.robot.commands.Autonomous_Option4;
 import frc.robot.commands.Autonomous_Option5;
 import frc.robot.commands.Autonomous_Option6;
-import frc.robot.commands.cmdAuto_AlignGroup;
 import frc.robot.commands.cmdAuto_AlignToTarget;
 import frc.robot.commands.cmdIntake_Lower;
 import frc.robot.commands.cmdIntake_Raise;
@@ -88,7 +87,7 @@ public class RobotContainer {
   }
 
   private void AddAutoCommands(){
-    autoChooser.setDefaultOption("Option 1 - Shoot, Move", new Autonomous_Option1(drive, feed, shoot));  
+    autoChooser.setDefaultOption("Option 1 - Shoot, Move", new Autonomous_Option1(drive, lime, feed, shoot));  
     autoChooser.addOption("Option 2 - Shoot, Grab, Shoot, Move", new Autonomous_Option2(drive, feed, intake, air, shoot, lime));
     autoChooser.addOption("Option 3 - Grab, Shoot 2, Move", new Autonomous_Option3(drive, feed, intake, air, shoot, lime));
     autoChooser.addOption("Option 4 - Grab, Shoot 2, Turn, Move, Grab, Move, Turn, Shoot 1", new Autonomous_Option4(drive, feed, intake, air, shoot, lime));

@@ -12,7 +12,6 @@ public class Robot extends TimedRobot {
   @Override
   public void robotInit() {
     m_robotContainer = new RobotContainer();
-    //CameraServer.startAutomaticCapture();
   }
 
   @Override
@@ -36,23 +35,16 @@ public class Robot extends TimedRobot {
 
   @Override
   public void disabledPeriodic() {
-    //m_robotContainer.led.rainbow();
   }
 
   @Override
   public void autonomousInit() {
-    m_robotContainer.climb.SetMotorSettings();
-    m_robotContainer.drive.SetMotorSettings();
-    m_robotContainer.feed.SetMotorSettings();
-    m_robotContainer.indexer.SetMotorSettings();
-    m_robotContainer.intake.SetMotorSettings();
+    m_robotContainer.lime.setToAutoTargetMode();
     m_autonomousCommand = m_robotContainer.getAutonomousCommand();
 
     if (m_autonomousCommand != null) {
       m_autonomousCommand.schedule();
     }
-
-    //m_robotContainer.led.green();
   }
 
   @Override
@@ -63,6 +55,7 @@ public class Robot extends TimedRobot {
     if (m_autonomousCommand != null) {
       m_autonomousCommand.cancel();
     }
+    m_robotContainer.lime.setToDriverMode();
     m_robotContainer.drive.setDriveUnlocked();
     m_robotContainer.drive.stopDrive();
     m_robotContainer.intake.stopIntake();
@@ -72,7 +65,6 @@ public class Robot extends TimedRobot {
 
   @Override
   public void teleopPeriodic() {
-    //m_robotContainer.led.team5484();
   }
 
   @Override

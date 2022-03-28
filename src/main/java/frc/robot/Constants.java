@@ -37,8 +37,11 @@ public final class Constants {
         private final static int radioPowerPortId = 22;
         private final static int limeLightPowerPortId = 23;
 
-        // LED System
+        // Digital Devices
         private final static int ledPwmPin = 0;
+
+        // Analog Devices
+        private final static int UltrasonicSensor = 0;
     }
 
     public final static class DriveControllers {
@@ -79,6 +82,9 @@ public final class Constants {
         public static final double MaxTurnAccelerationDegPerSecSquared = 300;
         public static final boolean GyroReversed = false;
         public static final double EncoderTickToInch = 0.48;
+        // Ultrasonic
+        public static final int UltrasonicId = HardwareId.UltrasonicSensor;
+        public static final double ShootDistanceVoltage = 2.0;
     }
 
     public final static class IntakeSystem {

@@ -4,17 +4,18 @@ import edu.wpi.first.wpilibj2.command.InstantCommand;
 import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
 import frc.robot.subsystems.subDriveSystem;
 import frc.robot.subsystems.subFeedSystem;
+import frc.robot.subsystems.subLimeLightSystem;
 import frc.robot.subsystems.subShootSystem;
 
 public class Autonomous_Option1 extends SequentialCommandGroup {
   
-  public Autonomous_Option1(subDriveSystem _drive, subFeedSystem _feed, subShootSystem _shooter) {
+  public Autonomous_Option1(subDriveSystem drive, subLimeLightSystem lime, subFeedSystem feed, subShootSystem shooter) {
     addCommands(
       // Shoot ball
-      new cmdShooter_AutoShootHighGoal(_shooter, _feed, 3),
+      new cmdShooter_AutoShootHighGoal(drive, lime, shooter, feed, 3),
       // Leave loading zone
-      new cmdDrive_DriveStraightByEncoder(_drive, 30, 0.7),
-      new InstantCommand(() -> _drive.setDriveLocked())
+      new cmdDrive_DriveStraightByEncoder(drive, 30, 0.7),
+      new InstantCommand(() -> drive.setDriveLocked())
     );
   }
 }

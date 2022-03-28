@@ -11,28 +11,28 @@ import frc.robot.subsystems.subPneumaticSystem;
 import frc.robot.subsystems.subShootSystem;
 
 public class Autonomous_Option3 extends SequentialCommandGroup {
-  public Autonomous_Option3(subDriveSystem _drive, subFeedSystem _feed, subIntakeSystem _intake, subPneumaticSystem _air, subShootSystem _shooter, subLimeLightSystem _lime) {
+  public Autonomous_Option3(subDriveSystem drive, subFeedSystem feed, subIntakeSystem intake, subPneumaticSystem air, subShootSystem shooter, subLimeLightSystem lime) {
     addCommands(
       // Run intake, lower intake, drive backwards and pickup ball
       new ParallelCommandGroup(
-        new InstantCommand(() -> _intake.runIntake()),
-        new InstantCommand(() -> _air.lowerIntake()),
-        new cmdDrive_DriveStraightByEncoder(_drive, 35, 0.4)
+        new InstantCommand(() -> intake.runIntake()),
+        new InstantCommand(() -> air.lowerIntake()),
+        new cmdDrive_DriveStraightByEncoder(drive, 35, 0.4)
       ),
       // Stop intake, raise intake, drive forwards
-      new InstantCommand(() -> _drive.setDriveLocked()),
+      new InstantCommand(() -> drive.setDriveLocked()),
       new ParallelCommandGroup(
-        new InstantCommand(() -> _intake.stopIntake()),
-        new InstantCommand(() -> _air.raiseIntake()),
-        new cmdDrive_DriveStraightByEncoder(_drive, 27, -0.5)
+        new InstantCommand(() -> intake.stopIntake()),
+        new InstantCommand(() -> air.raiseIntake()),
+        new cmdDrive_DriveStraightByEncoder(drive, 27, -0.5)
       ),
       // Stop drive, shoot balls
-      new InstantCommand(() -> _drive.setDriveLocked()),
-      new cmdAuto_AlignToTarget(_drive, _lime).withTimeout(2),
-      new cmdShooter_AutoShootHighGoal(_shooter, _feed, 3),
+      new InstantCommand(() -> drive.setDriveLocked()),
+      new cmdAuto_AlignToTarget(drive, lime).withTimeout(2),
+      new cmdShooter_AutoShootHighGoal(drive, lime, shooter, feed, 3),
       // Leave loading zone
-      new cmdDrive_DriveStraightByEncoder(_drive, 30, 0.7),
-      new InstantCommand(() -> _drive.setDriveLocked())
+      new cmdDrive_DriveStraightByEncoder(drive, 30, 0.7),
+      new InstantCommand(() -> drive.setDriveLocked())
     );
   }
 }
