@@ -31,7 +31,7 @@ public class Autonomous_Option4 extends SequentialCommandGroup {
       new cmdAuto_AlignToTarget(_drive, _lime).withTimeout(2),
       new cmdShooter_AutoShootHighGoal(_shooter, _feed, 3),
       new InstantCommand(() -> _drive.ResetGyro()),
-      new cmdDrive_GyroTurnToAngle(_drive, 70),
+      new cmdDrive_GyroTurnToAngle(_drive, 80),
       // Run intake, lower intake, drive to ball
       new ParallelCommandGroup(
         new InstantCommand(() -> _intake.runIntake()),
@@ -47,7 +47,7 @@ public class Autonomous_Option4 extends SequentialCommandGroup {
       ),
       // Turn robot, shoot balls, turn robot drive out.
       new InstantCommand(() -> _drive.ResetGyro()),
-      new cmdDrive_GyroTurnToAngle(_drive, -70),
+      new cmdDrive_GyroTurnToAngle(_drive, -80),
       new cmdAuto_AlignToTarget(_drive, _lime).withTimeout(2),
       new cmdShooter_AutoShootHighGoal(_shooter, _feed, 3),
       new InstantCommand(() -> _drive.ResetGyro()),
