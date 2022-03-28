@@ -4,6 +4,7 @@ import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.subsystems.subDriveSystem;
 import frc.robot.subsystems.subFeedSystem;
+import frc.robot.subsystems.subIndexerSystem;
 import frc.robot.subsystems.subLimeLightSystem;
 import frc.robot.subsystems.subShootSystem;
 
@@ -12,6 +13,7 @@ public class cmdShooter_AutoShootHighGoal extends CommandBase {
   subLimeLightSystem lime;
   subShootSystem shooter;
   subFeedSystem feed;
+  subIndexerSystem indexer;
   Double seconds;
   Timer time;
   public cmdShooter_AutoShootHighGoal(subDriveSystem _drive, subLimeLightSystem _lime, subShootSystem _shooter, subFeedSystem _feed, double _seconds) {
@@ -27,6 +29,10 @@ public class cmdShooter_AutoShootHighGoal extends CommandBase {
   public void initialize() {
     time = new Timer();
     time.start();
+    if(feed.BallInShooter())
+    {
+      feed.reverseFeed(); 
+    }
   }
 
   @Override

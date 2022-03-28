@@ -42,6 +42,8 @@ public final class Constants {
 
         // Analog Devices
         private final static int UltrasonicSensor = 0;
+        private final static int BallSensorShooter = 1;
+        private final static int BallSensorIntake = 2;
     }
 
     public final static class DriveControllers {
@@ -82,7 +84,7 @@ public final class Constants {
         public static final double MaxTurnAccelerationDegPerSecSquared = 300;
         public static final boolean GyroReversed = false;
         public static final double EncoderTickToInch = 0.48;
-        // Ultrasonic
+        // Sensors
         public static final int UltrasonicId = HardwareId.UltrasonicSensor;
         public static final double ShootDistanceVoltage = 2.0;
     }
@@ -103,6 +105,11 @@ public final class Constants {
         public final static boolean IndexerInverted = true;
         // Speed
         public final static double IndexerSpeed = 0.2;
+        // Sensors
+        public static final int BallSensorShooterId = HardwareId.BallSensorShooter;
+        public static final double BallSensorShooterValue = 1.0;
+        public static final int BallSensorIntakeId = HardwareId.BallSensorIntake;
+        public static final double BallSensorIntakeValue = 1.0;
     }
     
     public final static class ShooterSystem {

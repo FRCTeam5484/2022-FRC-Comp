@@ -26,9 +26,9 @@ public class subDriveSystem extends SubsystemBase {
   public MotorControllerGroup rightDrive = new MotorControllerGroup(rightDriveMaster, rightDriveSlave);
   private DifferentialDrive driveTrain = new DifferentialDrive(leftDrive, rightDrive);
   private PIDController targetPID = new PIDController(DriveSystem.TurnPValue, DriveSystem.TurnIValue, DriveSystem.TurnDValue);
-  private final MedianFilter distancefilter = new MedianFilter(5);
-  private final AnalogInput distanceSensor = new AnalogInput(DriveSystem.UltrasonicId);
-  private final PIDController distancePID = new PIDController(DriveSystem.DrivePValue, DriveSystem.DriveIValue, DriveSystem.DriveDValue);
+  private MedianFilter distancefilter = new MedianFilter(5);
+  private AnalogInput distanceSensor = new AnalogInput(DriveSystem.UltrasonicId);
+  private PIDController distancePID = new PIDController(DriveSystem.DrivePValue, DriveSystem.DriveIValue, DriveSystem.DriveDValue);
   
   public subDriveSystem() {
     SetMotorSettings();

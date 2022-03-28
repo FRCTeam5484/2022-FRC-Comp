@@ -1,17 +1,25 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
+import frc.robot.subsystems.subFeedSystem;
 import frc.robot.subsystems.subShootSystem;
 
 public class cmdShooter_HighGoalSpeed extends CommandBase {
   subShootSystem shooter;
-  public cmdShooter_HighGoalSpeed(subShootSystem _shooter) {
+  subFeedSystem feed;
+  public cmdShooter_HighGoalSpeed(subShootSystem _shooter, subFeedSystem _feed) {
     shooter = _shooter;
-    addRequirements(shooter);
+    feed = _feed;
+    addRequirements(shooter, feed);
   }
 
   @Override
-  public void initialize() {}
+  public void initialize() {
+    if(feed.BallInShooter())
+    {
+      feed.reverseFeed();
+    }
+  }
 
   @Override
   public void execute() {

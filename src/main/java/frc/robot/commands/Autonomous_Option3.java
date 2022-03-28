@@ -2,6 +2,7 @@ package frc.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.InstantCommand;
 import edu.wpi.first.wpilibj2.command.ParallelCommandGroup;
+import edu.wpi.first.wpilibj2.command.RunCommand;
 import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
 import frc.robot.subsystems.subFeedSystem;
 import frc.robot.subsystems.subDriveSystem;
@@ -27,8 +28,8 @@ public class Autonomous_Option3 extends SequentialCommandGroup {
         new cmdDrive_DriveStraightByEncoder(drive, 27, -0.5)
       ),
       // Stop drive, shoot balls
+      new RunCommand(()-> drive.autoMoveToTargetDistance()).withTimeout(2),
       new InstantCommand(() -> drive.setDriveLocked()),
-      new cmdAuto_AlignToTarget(drive, lime).withTimeout(2),
       new cmdShooter_AutoShootHighGoal(drive, lime, shooter, feed, 3),
       // Leave loading zone
       new cmdDrive_DriveStraightByEncoder(drive, 30, 0.7),
