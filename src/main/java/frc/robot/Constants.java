@@ -69,7 +69,7 @@ public final class Constants {
         public static final double TurnPValue = 0.06;
         public static final double TurnIValue = 0;
         public static final double TurnDValue = 0.0033;
-        public static final double TurnToleranceDeg = 3.5;
+        public static final double TurnToleranceDeg = 2;
         public static final double MaxTurnRateDegPerSec = 100;
         public static final double TurnRateToleranceDegPerSec = 10;
         // PID Drive Values
