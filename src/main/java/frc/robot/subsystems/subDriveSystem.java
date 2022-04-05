@@ -39,6 +39,9 @@ public class subDriveSystem extends SubsystemBase {
   @Override
   public void periodic() {
     SmartDashboard.putNumber("Distance", distanceSensor.getVoltage());
+    SmartDashboard.putNumber("LD Encoder", getLeftPosition());
+    SmartDashboard.putNumber("RD Encoder", getRightPosition());
+    SmartDashboard.putBoolean("Target Dis", (DriveSystem.ShootDistanceMinimumVoltage < distanceSensor.getVoltage() || distanceSensor.getVoltage() < DriveSystem.ShootDistanceMaximumVoltage) ? true : false);
   }
 
   public void SetMotorSettings() {
@@ -83,7 +86,7 @@ public class subDriveSystem extends SubsystemBase {
   }
 
   public void autoTurn(double targetRot) {
-    driveTrain.arcadeDrive(0, MathUtil.clamp(targetRot, DriveSystem.AutoMinSpeed, DriveSystem.AutoMaxSpeed));
+    driveTrain.arcadeDrive(0, MathUtil.clamp(targetRot, -DriveSystem.AutoTurnMaxSpeed, DriveSystem.AutoTurnMaxSpeed));
   }
 
   public void autoDriveByPower(double targetSpeed) {
@@ -108,7 +111,7 @@ public class subDriveSystem extends SubsystemBase {
 
   public boolean autoMoveToTargetDistance(){
     distancePID.setTolerance(0.5);
-    double output = distancePID.calculate(distancefilter.calculate(distanceSensor.getVoltage()), DriveSystem.ShootDistanceVoltage);
+    double output = distancePID.calculate(distancefilter.calculate(distanceSensor.getVoltage()), DriveSystem.ShootDistancePerfectVoltage);
     if(!distancePID.atSetpoint()){
       autoDriveByPower(-output);
     }

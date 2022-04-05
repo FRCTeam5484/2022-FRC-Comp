@@ -13,10 +13,7 @@ public class subLimeLightSystem extends SubsystemBase {
   private NetworkTableEntry xEntry;
   private NetworkTableEntry pipelineEntry;
   double ty;
-  double ta;
-  double tl;
   double tv;
-  double ts;
   double tx;
   public boolean HasValidTarget = false;
   public double DriveCommand = 0.0;

@@ -27,6 +27,7 @@ public class cmdDrive_DriveStraightByEncoder extends CommandBase {
   @Override
   public void end(boolean interrupted) {
     drive.stopDrive();
+    drive.ResetEncoders();
   }
 
   @Override

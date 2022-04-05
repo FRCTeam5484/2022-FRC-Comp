@@ -17,7 +17,7 @@ public class cmdAuto_AlignToTarget extends PIDCommand {
         0,
         output -> drive.autoTurn(-output),
         drive);
-        getController().setTolerance(0.5);
+        getController().setTolerance(2.0);
   }
 
   // Returns true when the command should end.

@@ -16,6 +16,7 @@ import frc.robot.commands.Autonomous_Option3;
 import frc.robot.commands.Autonomous_Option4;
 import frc.robot.commands.Autonomous_Option5;
 import frc.robot.commands.Autonomous_Option6;
+import frc.robot.commands.Autonomous_Option7;
 import frc.robot.commands.cmdAuto_AlignToTarget;
 import frc.robot.commands.cmdIntake_Lower;
 import frc.robot.commands.cmdIntake_Raise;
@@ -86,12 +87,12 @@ public class RobotContainer {
   }
 
   private void AddAutoCommands(){
-    autoChooser.setDefaultOption("Option 1 - Shoot, Move", new Autonomous_Option1(drive, lime, feed, shoot));  
-    autoChooser.addOption("Option 2 - Shoot, Grab, Shoot, Move", new Autonomous_Option2(drive, feed, intake, air, shoot, lime));
-    autoChooser.addOption("Option 3 - Grab, Shoot 2, Move", new Autonomous_Option3(drive, feed, intake, air, shoot, lime));
-    autoChooser.addOption("Option 4 - Grab, Shoot 2, Turn, Move, Grab, Move, Turn, Shoot 1", new Autonomous_Option4(drive, feed, intake, air, shoot, lime));
-    autoChooser.addOption("Option 5 - Move Off Line", new Autonomous_Option5(drive));
-    autoChooser.addOption("Option 6 - Grab, Shoot 2, Turn, Move", new Autonomous_Option6(drive, feed, intake, air, shoot, lime));
+    autoChooser.setDefaultOption("Option 1 - 1 Ball, Anywhere", new Autonomous_Option1(drive, lime, feed, shoot));  
+    autoChooser.addOption("Option 3 - 2 Ball, Left Tarmack", new Autonomous_Option3(drive, feed, intake, air, shoot, lime));
+    autoChooser.addOption("Option 4 - 3 Ball, Right Tarmack, Right Side", new Autonomous_Option4(drive, feed, intake, air, shoot, lime));
+    autoChooser.addOption("Option 5 - Move Off Line, Anywhere", new Autonomous_Option5(drive));
+    autoChooser.addOption("Option 6 - 2 Ball, Right Tarmack, Right Side", new Autonomous_Option6(drive, feed, intake, air, shoot, lime));
+    autoChooser.addOption("Option 7 - 4 Ball, Right Tarmack Left Side", new Autonomous_Option7(drive, feed, intake, air, shoot, lime, indexer));
     SmartDashboard.putData("Autonomous", autoChooser);
   }
 

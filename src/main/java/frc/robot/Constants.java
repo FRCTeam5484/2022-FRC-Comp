@@ -64,7 +64,7 @@ public final class Constants {
         public final static double ManualSpeedFactor = 0.95;
         public final static double AutoMaxSpeed = 0.70;
         public final static double AutoMinSpeed = -0.70;
-        public final static double AutoTurnMaxSpeed = 0.70;
+        public final static double AutoTurnMaxSpeed = 1;
         // PID Turn Values
         public static final double TurnPValue = 0.06;
         public static final double TurnIValue = 0;
@@ -86,7 +86,9 @@ public final class Constants {
         public static final double EncoderTickToInch = 0.48;
         // Sensors
         public static final int UltrasonicId = HardwareId.UltrasonicSensor;
-        public static final double ShootDistanceVoltage = 2.0;
+        public static final double ShootDistanceMinimumVoltage = 1.0;
+        public static final double ShootDistancePerfectVoltage = 2.0;
+        public static final double ShootDistanceMaximumVoltage = 3.0;
     }
 
     public final static class IntakeSystem {

@@ -12,6 +12,7 @@ public class Robot extends TimedRobot {
   @Override
   public void robotInit() {
     m_robotContainer = new RobotContainer();
+    m_robotContainer.drive.ResetEncoders();
   }
 
   @Override
@@ -23,6 +24,7 @@ public class Robot extends TimedRobot {
 
   @Override
   public void disabledInit() {
+    m_robotContainer.drive.ResetEncoders();
     if (m_autonomousCommand != null) {
       m_autonomousCommand.cancel();
     }
@@ -39,6 +41,7 @@ public class Robot extends TimedRobot {
 
   @Override
   public void autonomousInit() {
+    m_robotContainer.drive.ResetEncoders();
     m_robotContainer.lime.setToAutoTargetMode();
     m_autonomousCommand = m_robotContainer.getAutonomousCommand();
 
@@ -55,6 +58,7 @@ public class Robot extends TimedRobot {
     if (m_autonomousCommand != null) {
       m_autonomousCommand.cancel();
     }
+    m_robotContainer.indexer.stopIndexer();
     m_robotContainer.lime.setToDriverMode();
     m_robotContainer.drive.setDriveUnlocked();
     m_robotContainer.drive.stopDrive();
