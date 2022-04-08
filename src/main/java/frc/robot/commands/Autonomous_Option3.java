@@ -28,9 +28,8 @@ public class Autonomous_Option3 extends SequentialCommandGroup {
         new cmdDrive_DriveStraightByEncoder(drive, 27, -0.5)
       ),
       // Stop drive, shoot balls
-      new RunCommand(()-> drive.autoMoveToTargetDistance()).withTimeout(2),
       new InstantCommand(() -> drive.setDriveLocked()),
-      new cmdShooter_AutoShootHighGoal(drive, lime, shooter, feed, 3),
+      new cmdShooter_AutoShootHighGoal(drive, lime, shooter, feed, 4),
       // Leave loading zone
       new cmdDrive_DriveStraightByEncoder(drive, 30, 0.7),
       new InstantCommand(() -> drive.setDriveLocked())

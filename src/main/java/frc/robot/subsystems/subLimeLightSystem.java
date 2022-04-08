@@ -23,6 +23,10 @@ public class subLimeLightSystem extends SubsystemBase {
 
   @Override
   public void periodic() {
+    getValues();
+  }
+
+  public void getValues(){
     networkTable = NetworkTableInstance.getDefault().getTable("limelight");
     yEntry = networkTable.getEntry("ty");
     vEntry = networkTable.getEntry("tv");

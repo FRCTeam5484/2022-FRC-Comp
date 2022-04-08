@@ -69,7 +69,7 @@ public final class Constants {
         public static final double TurnPValue = 0.06;
         public static final double TurnIValue = 0;
         public static final double TurnDValue = 0.0033;
-        public static final double TurnToleranceDeg = 2;
+        public static final double TurnToleranceDeg = 5;
         public static final double MaxTurnRateDegPerSec = 100;
         public static final double TurnRateToleranceDegPerSec = 10;
         // PID Drive Values
@@ -86,9 +86,9 @@ public final class Constants {
         public static final double EncoderTickToInch = 0.48;
         // Sensors
         public static final int UltrasonicId = HardwareId.UltrasonicSensor;
-        public static final double ShootDistanceMinimumVoltage = 1.0;
-        public static final double ShootDistancePerfectVoltage = 2.0;
-        public static final double ShootDistanceMaximumVoltage = 3.0;
+        public static final double ShootDistanceMinimumVoltage = 1.15;
+        public static final double ShootDistancePerfectVoltage = 1.31;
+        public static final double ShootDistanceMaximumVoltage = 1.45;
     }
 
     public final static class IntakeSystem {

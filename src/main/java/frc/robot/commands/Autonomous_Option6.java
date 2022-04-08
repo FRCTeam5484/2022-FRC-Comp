@@ -25,10 +25,9 @@ public class Autonomous_Option6 extends SequentialCommandGroup {
       new ParallelCommandGroup(
         new InstantCommand(() -> intake.stopIntake()),
         new InstantCommand(() -> air.raiseIntake()),
-        new cmdDrive_DriveStraightByEncoder(drive, 20, -0.5)
+        new cmdDrive_DriveStraightByEncoder(drive, 17, -0.5)
       ),
       // Stop drive, shoot balls, turn robot
-      new RunCommand(()-> drive.autoMoveToTargetDistance()).withTimeout(2),
       new InstantCommand(() -> drive.setDriveLocked()),
       new cmdShooter_AutoShootHighGoal(drive, lime, shooter, feed, 3),
       new InstantCommand(() -> drive.ResetGyro()),

@@ -28,7 +28,6 @@ public class Autonomous_Option4 extends SequentialCommandGroup {
         new cmdDrive_DriveStraightByEncoder(drive, 20, -0.5)
       ),
       // Stop drive, shoot balls, turn robot
-      new RunCommand(()-> drive.autoMoveToTargetDistance()).withTimeout(2),
       new InstantCommand(() -> drive.setDriveLocked()),
       new cmdShooter_AutoShootHighGoal(drive, lime, shooter, feed, 3),
       new InstantCommand(() -> drive.ResetGyro()),
@@ -49,7 +48,6 @@ public class Autonomous_Option4 extends SequentialCommandGroup {
       // Turn robot, shoot balls, turn robot drive out.
       new InstantCommand(() -> drive.ResetGyro()),
       new cmdDrive_GyroTurnToAngle(drive, -65),
-      new RunCommand(()-> drive.autoMoveToTargetDistance()).withTimeout(2),
       new cmdShooter_AutoShootHighGoal(drive, lime, shooter, feed, 3),
       new InstantCommand(() -> drive.ResetGyro()),
       new cmdDrive_GyroTurnToAngle(drive, 70),

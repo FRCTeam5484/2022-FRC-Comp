@@ -38,11 +38,11 @@ public class cmdShooter_AutoShootHighGoal extends CommandBase {
   @Override
   public void execute() {
     shooter.setShooterToHighGoal();
-    if(drive.autoMoveToTargetDistance()){
-      if(time.get() > 1 && drive.autoTargetAlign(lime.getTX())){
+    //if(drive.autoMoveToTargetDistance()){
+      if(time.get() > 1){
         feed.runFeed();
       }
-    }
+    //}
   }
 
   @Override

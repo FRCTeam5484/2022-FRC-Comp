@@ -28,16 +28,16 @@ public class Autonomous_Option7 extends SequentialCommandGroup {
         new InstantCommand(() -> _intake.stopIntake()),
         new InstantCommand(() -> _air.raiseIntake()),
         new InstantCommand(() -> _indexer.runIndexer()),
-        new cmdDrive_DriveStraightByEncoder(_drive, 18, -0.6)
+        new cmdDrive_DriveStraightByEncoder(_drive, 18, -0.5)
       ),
       // Stop drive, shoot balls
       new InstantCommand(() -> _drive.setDriveLocked()),
       new InstantCommand(() -> _drive.ResetGyro()),
-      new cmdDrive_GyroTurnToAngle(_drive, -10),
+      new cmdDrive_GyroTurnToAngle(_drive, -10).withTimeout(2),
       new cmdShooter_AutoShootHighGoal(_drive, _lime, _shooter, _feed, 3),
       // Turn to human feed and go forward
       new InstantCommand(() -> _drive.ResetGyro()),
-      new cmdDrive_GyroTurnToAngle(_drive, 20),
+      new cmdDrive_GyroTurnToAngle(_drive, 24).withTimeout(2),
       new InstantCommand(() -> _drive.setDriveLocked()),
       new cmdDrive_DriveStraightByEncoder(_drive, 60, 0.7),
       new InstantCommand(() -> _drive.setDriveLocked()),
@@ -56,8 +56,7 @@ public class Autonomous_Option7 extends SequentialCommandGroup {
       ),
       new InstantCommand(() -> _drive.setDriveLocked()),
       new InstantCommand(() -> _drive.ResetGyro()),
-      new cmdDrive_GyroTurnToAngle(_drive, -20),
-      new cmdShooter_AutoShootHighGoal(_drive, _lime, _shooter, _feed, 3)
+      new cmdDrive_GyroTurnToAngle(_drive, -20)
     );
   }
 }
