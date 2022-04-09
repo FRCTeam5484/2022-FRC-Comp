@@ -19,16 +19,14 @@ public class Autonomous_Option7 extends SequentialCommandGroup {
       new ParallelCommandGroup(
         new InstantCommand(() -> _intake.runIntake()),
         new InstantCommand(() -> _air.lowerIntake()),
-        new InstantCommand(() -> _indexer.runIndexer())
+        new cmdDrive_DriveStraightByEncoder(_drive, 35, 0.4)
       ),
-      new cmdDrive_DriveStraightByEncoder(_drive, 28, 0.5),
       // Stop intake, raise intake, drive forwards
       new InstantCommand(() -> _drive.setDriveLocked()),
       new ParallelCommandGroup(
         new InstantCommand(() -> _intake.stopIntake()),
         new InstantCommand(() -> _air.raiseIntake()),
-        new InstantCommand(() -> _indexer.runIndexer()),
-        new cmdDrive_DriveStraightByEncoder(_drive, 18, -0.5)
+        new cmdDrive_DriveStraightByEncoder(_drive, 27, -0.5)
       ),
       // Stop drive, shoot balls
       new InstantCommand(() -> _drive.setDriveLocked()),
@@ -39,7 +37,7 @@ public class Autonomous_Option7 extends SequentialCommandGroup {
       new InstantCommand(() -> _drive.ResetGyro()),
       new cmdDrive_GyroTurnToAngle(_drive, 24).withTimeout(2),
       new InstantCommand(() -> _drive.setDriveLocked()),
-      new cmdDrive_DriveStraightByEncoder(_drive, 60, 0.7),
+      new cmdDrive_DriveStraightByEncoder(_drive, 57, 0.7),
       new InstantCommand(() -> _drive.setDriveLocked()),
       new ParallelCommandGroup(
         new InstantCommand(() -> _intake.runIntake()),

@@ -11,10 +11,14 @@ public class Autonomous_Option1 extends SequentialCommandGroup {
   
   public Autonomous_Option1(subDriveSystem drive, subLimeLightSystem lime, subFeedSystem feed, subShootSystem shooter) {
     addCommands(
+      // Move
+      new cmdDrive_DriveStraightByEncoder(drive, 8, 0.6),
+      // Stop
+      new InstantCommand(() -> drive.setDriveLocked()),
       // Shoot ball
       new cmdShooter_AutoShootHighGoal(drive, lime, shooter, feed, 3),
       // Leave loading zone
-      new cmdDrive_DriveStraightByEncoder(drive, 30, 0.7),
+      new cmdDrive_DriveStraightByEncoder(drive, 20, 0.7),
       new InstantCommand(() -> drive.setDriveLocked())
     );
   }

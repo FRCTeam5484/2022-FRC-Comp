@@ -106,7 +106,7 @@ public final class Constants {
         // Inversion
         public final static boolean IndexerInverted = true;
         // Speed
-        public final static double IndexerSpeed = 0.2;
+        public final static double IndexerSpeed = 0.3;
         // Sensors
         public static final int BallSensorShooterId = HardwareId.BallSensorShooter;
         public static final double BallSensorShooterValue = 1.0;
@@ -122,7 +122,7 @@ public final class Constants {
         public final static boolean BallFeedInverted = false;
         public final static boolean ShooterInverted = true;
         // Speed
-        public final static double BallFeedSpeed = 0.5;
+        public final static double BallFeedSpeed = 0.7;
         public final static double ShooterLowGoalVelocity = 2000;
         public final static double ShooterHighGoalVelocity = 4000;
         public static final double VelocityTolerance = 200;
