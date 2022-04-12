@@ -24,6 +24,9 @@ public class cmdAuto_MoveToShootingPosition extends CommandBase {
     if(lime.hasTarget()){
       drive.autoDrive(lime.DriveCommand, lime.SteerCommand);
     }
+    else{
+      drive.stopDrive();
+    }
   }
 
   @Override
