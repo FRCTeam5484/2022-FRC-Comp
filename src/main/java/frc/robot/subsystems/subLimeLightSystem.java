@@ -45,11 +45,8 @@ public class subLimeLightSystem extends SubsystemBase {
     {
       DriveCommand = 0.0;
       SteerCommand = 0.0;
-      return;
     }
     else {
-      HasValidTarget = true;
-
       double steer_cmd = (tx+LimeLightSystem.tx) * LimeLightSystem.STEER_K;
       SteerCommand = steer_cmd;
 
