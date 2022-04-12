@@ -18,6 +18,7 @@ import frc.robot.commands.Autonomous_Option5;
 import frc.robot.commands.Autonomous_Option6;
 import frc.robot.commands.Autonomous_Option7;
 import frc.robot.commands.cmdAuto_AlignToTarget;
+import frc.robot.commands.cmdAuto_MoveToShootingPosition;
 import frc.robot.commands.cmdIntake_Lower;
 import frc.robot.commands.cmdIntake_Raise;
 import frc.robot.commands.cmdShooter_UnJam;
@@ -121,9 +122,7 @@ public class RobotContainer {
       .whenInactive(new InstantCommand(() -> intake.stopIntake(), intake));
 
     driverOne_A
-      .whenPressed(new InstantCommand(()-> lime.setToAutoTargetMode()))
-      .whileHeld(new cmdAuto_AlignToTarget(drive, lime))
-      .whenReleased(new InstantCommand(() -> lime.setToDriverMode()));
+      .whileHeld(new cmdAuto_MoveToShootingPosition(drive, lime));
     } 
 
   private void DriverTwoFunctions() {   

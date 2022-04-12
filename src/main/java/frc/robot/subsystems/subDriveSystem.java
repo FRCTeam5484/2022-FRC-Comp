@@ -26,9 +26,9 @@ public class subDriveSystem extends SubsystemBase {
   public MotorControllerGroup rightDrive = new MotorControllerGroup(rightDriveMaster, rightDriveSlave);
   private DifferentialDrive driveTrain = new DifferentialDrive(leftDrive, rightDrive);
   private PIDController targetPID = new PIDController(DriveSystem.TurnPValue, DriveSystem.TurnIValue, DriveSystem.TurnDValue);
-  //private MedianFilter distancefilter = new MedianFilter(5);
-  //private AnalogInput distanceSensor = new AnalogInput(DriveSystem.UltrasonicId);
-  //private PIDController distancePID = new PIDController(DriveSystem.DrivePValue, DriveSystem.DriveIValue, DriveSystem.DriveDValue);
+  private MedianFilter distancefilter = new MedianFilter(5);
+  private AnalogInput distanceSensor = new AnalogInput(DriveSystem.UltrasonicId);
+  private PIDController distancePID = new PIDController(DriveSystem.DrivePValue, DriveSystem.DriveIValue, DriveSystem.DriveDValue);
   
   public subDriveSystem() {
     SetMotorSettings();
@@ -38,12 +38,8 @@ public class subDriveSystem extends SubsystemBase {
 
   @Override
   public void periodic() {
-    /*
     SmartDashboard.putNumber("Distance", distanceSensor.getVoltage());
-    SmartDashboard.putNumber("LD Encoder", getLeftPosition());
-    SmartDashboard.putNumber("RD Encoder", getRightPosition());
     SmartDashboard.putBoolean("Target Dis", (DriveSystem.ShootDistanceMinimumVoltage < distanceSensor.getVoltage() && distanceSensor.getVoltage() < DriveSystem.ShootDistanceMaximumVoltage) ? true : false);
-    */
   }
 
   public void SetMotorSettings() {
@@ -93,6 +89,10 @@ public class subDriveSystem extends SubsystemBase {
 
   public void autoDriveByPower(double targetSpeed) {
     driveTrain.arcadeDrive(MathUtil.clamp(targetSpeed, DriveSystem.AutoMinSpeed, DriveSystem.AutoMaxSpeed), 0);
+  }
+
+  public void autoTankDrive(double leftSpeed, double rightSpeed){
+    driveTrain.tankDrive(leftSpeed, rightSpeed);
   }
 
   public void autoDrive(double driveSpeed, double turnSpeed){
