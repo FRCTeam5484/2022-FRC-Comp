@@ -23,11 +23,13 @@ public class subLimeLightSystem extends SubsystemBase {
 
   @Override
   public void periodic() {
-    getValues();
+    networkTable = NetworkTableInstance.getDefault().getTable("limelight");
+    if((networkTable.getEntry("tv").getDouble(0.0) < 1.0 ? false : true)){
+      getValues();
+    }
   }
 
   public void getValues(){
-    networkTable = NetworkTableInstance.getDefault().getTable("limelight");
     yEntry = networkTable.getEntry("ty");
     vEntry = networkTable.getEntry("tv");
     xEntry = networkTable.getEntry("tx"); 
@@ -39,21 +41,21 @@ public class subLimeLightSystem extends SubsystemBase {
 
     HasValidTarget = ((tv < 1.0) ? false : true);
 
-    if (tv < 1.0)
+    if (HasValidTarget)
     {
-      HasValidTarget = false;
       DriveCommand = 0.0;
       SteerCommand = 0.0;
       return;
     }
+    else {
+      HasValidTarget = true;
 
-    HasValidTarget = true;
+      double steer_cmd = (tx+LimeLightSystem.tx) * LimeLightSystem.STEER_K;
+      SteerCommand = steer_cmd;
 
-    double steer_cmd = (tx+LimeLightSystem.tx) * LimeLightSystem.STEER_K;
-    SteerCommand = steer_cmd;
-
-    double drive_cmd = (ty-LimeLightSystem.ty) * LimeLightSystem.DRIVE_K;
-    DriveCommand = drive_cmd;
+      double drive_cmd = (ty-LimeLightSystem.ty) * LimeLightSystem.DRIVE_K;
+      DriveCommand = drive_cmd;
+    }
   }
 
   public double getTY(){
