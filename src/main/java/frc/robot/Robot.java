@@ -58,7 +58,6 @@ public class Robot extends TimedRobot {
     if (m_autonomousCommand != null) {
       m_autonomousCommand.cancel();
     }
-    m_robotContainer.indexer.stopIndexer();
     m_robotContainer.lime.setToDriverMode();
     m_robotContainer.drive.setDriveUnlocked();
     m_robotContainer.drive.stopDrive();

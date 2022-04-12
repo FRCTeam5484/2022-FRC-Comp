@@ -23,7 +23,6 @@ import frc.robot.commands.cmdIntake_Lower;
 import frc.robot.commands.cmdIntake_Raise;
 import frc.robot.commands.cmdShooter_UnJam;
 import frc.robot.subsystems.subFeedSystem;
-import frc.robot.subsystems.subIndexerSystem;
 import frc.robot.subsystems.subClimbSystem;
 import frc.robot.subsystems.subDriveSystem;
 import frc.robot.subsystems.subIntakeSystem;
@@ -76,7 +75,6 @@ public class RobotContainer {
   public final subFeedSystem feed = new subFeedSystem();
   public final subPowerDistributionSystem power = new subPowerDistributionSystem();
   //public final subLEDSystem led = new subLEDSystem();
-  public final subIndexerSystem indexer = new subIndexerSystem();
   public final subLimeLightSystem lime = new subLimeLightSystem();
   
 
@@ -93,7 +91,7 @@ public class RobotContainer {
     autoChooser.addOption("Option 4 - 3 Ball, Right Tarmack, Right Side", new Autonomous_Option4(drive, feed, intake, air, shoot, lime));
     autoChooser.addOption("Option 5 - Move Off Line, Anywhere", new Autonomous_Option5(drive));
     autoChooser.addOption("Option 6 - 2 Ball, Right Tarmack, Right Side", new Autonomous_Option6(drive, feed, intake, air, shoot, lime));
-    autoChooser.addOption("Option 7 - 4 Ball, Right Tarmack Left Side", new Autonomous_Option7(drive, feed, intake, air, shoot, lime, indexer));
+    autoChooser.addOption("Option 7 - 4 Ball, Right Tarmack Left Side", new Autonomous_Option7(drive, feed, intake, air, shoot, lime));
     SmartDashboard.putData("Autonomous", autoChooser);
   }
 
@@ -114,8 +112,8 @@ public class RobotContainer {
       .whenReleased(new InstantCommand(() -> air.lowerClimb(), air));
 
     driverOne_LeftTrigger
-      .whenActive(new cmdIntake_Lower(air, intake, indexer))
-      .whenInactive(new cmdIntake_Raise(air, intake, indexer));
+      .whenActive(new cmdIntake_Lower(air, intake))
+      .whenInactive(new cmdIntake_Raise(air, intake));
 
     driverOne_RightTrigger
       .whenActive(new InstantCommand(() -> intake.runIntakeReverse(), intake))
