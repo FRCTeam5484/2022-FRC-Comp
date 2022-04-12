@@ -27,10 +27,6 @@ public class cmdShooter_AutoShootHighGoal extends CommandBase {
   public void initialize() {
     time = new Timer();
     time.start();
-    if(feed.BallInShooter())
-    {
-      feed.reverseFeed(); 
-    }
   }
 
   @Override
