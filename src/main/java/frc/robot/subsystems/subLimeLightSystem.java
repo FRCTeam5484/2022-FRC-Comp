@@ -1,9 +1,14 @@
 package frc.robot.subsystems;
 
+import org.opencv.core.Mat;
+
+import edu.wpi.first.math.MathUtil;
 import edu.wpi.first.networktables.NetworkTable;
 import edu.wpi.first.networktables.NetworkTableEntry;
 import edu.wpi.first.networktables.NetworkTableInstance;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
+import frc.robot.Constants.DriveSystem;
 import frc.robot.Constants.LimeLightSystem;
 
 public class subLimeLightSystem extends SubsystemBase {
@@ -26,6 +31,10 @@ public class subLimeLightSystem extends SubsystemBase {
     networkTable = NetworkTableInstance.getDefault().getTable("limelight");
     if((networkTable.getEntry("tv").getDouble(0.0) < 1.0 ? false : true)){
       getValues();
+      SmartDashboard.putBoolean("TX Aligned", (DriveCommand < 0.05 && SteerCommand < 0.05 ? true : false));
+    }
+    else{
+      SmartDashboard.putBoolean("TX Aligned", false);
     }
   }
 
@@ -47,11 +56,11 @@ public class subLimeLightSystem extends SubsystemBase {
       SteerCommand = 0.0;
     }
     else {
-      double steer_cmd = (tx+LimeLightSystem.tx) * LimeLightSystem.STEER_K;
-      SteerCommand = steer_cmd;
+      double steer_cmd = tx * LimeLightSystem.STEER_K;
+      SteerCommand = MathUtil.clamp(steer_cmd, DriveSystem.AutoMinSpeed, DriveSystem.AutoMaxSpeed);
 
-      double drive_cmd = (ty-LimeLightSystem.ty) * LimeLightSystem.DRIVE_K;
-      DriveCommand = drive_cmd;
+      double drive_cmd = ty * LimeLightSystem.DRIVE_K;
+      DriveCommand = MathUtil.clamp(drive_cmd, DriveSystem.AutoMinSpeed, DriveSystem.AutoMaxSpeed);
     }
   }
 
