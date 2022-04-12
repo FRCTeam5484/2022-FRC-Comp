@@ -11,13 +11,11 @@ import edu.wpi.first.wpilibj2.command.RunCommand;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import edu.wpi.first.wpilibj2.command.button.Trigger;
 import frc.robot.commands.Autonomous_Option1;
-import frc.robot.commands.Autonomous_Option2;
 import frc.robot.commands.Autonomous_Option3;
 import frc.robot.commands.Autonomous_Option4;
 import frc.robot.commands.Autonomous_Option5;
 import frc.robot.commands.Autonomous_Option6;
 import frc.robot.commands.Autonomous_Option7;
-import frc.robot.commands.cmdAuto_AlignToTarget;
 import frc.robot.commands.cmdAuto_MoveToShootingPosition;
 import frc.robot.commands.cmdIntake_Lower;
 import frc.robot.commands.cmdIntake_Raise;
@@ -120,7 +118,8 @@ public class RobotContainer {
       .whenInactive(new InstantCommand(() -> intake.stopIntake(), intake));
 
     driverOne_A
-      .whileHeld(new cmdAuto_MoveToShootingPosition(drive, lime));
+      .whileHeld(new cmdAuto_MoveToShootingPosition(drive, lime))
+      .whenReleased(new InstantCommand(()-> drive.TeleOp(driverOne)));
     } 
 
   private void DriverTwoFunctions() {   
