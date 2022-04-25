@@ -16,7 +16,7 @@ public class cmdAuto_MoveToShootingPosition extends CommandBase {
 
   @Override
   public void initialize() {
-    lime.setToAutoTargetMode();
+ 
   }
 
   @Override
@@ -32,7 +32,6 @@ public class cmdAuto_MoveToShootingPosition extends CommandBase {
   @Override
   public void end(boolean interrupted) {
     drive.stopDrive();
-    lime.setToDriverMode();
   }
 
   @Override

@@ -18,14 +18,14 @@ public class Autonomous_Option6 extends SequentialCommandGroup {
       new ParallelCommandGroup(
         new InstantCommand(() -> intake.runIntake()),
         new InstantCommand(() -> air.lowerIntake()),
-        new cmdDrive_DriveStraightByEncoder(drive, 22, 0.5).withTimeout(6)
+        new cmdDrive_DriveStraightByEncoder(drive, 22, 0.4).withTimeout(6)
       ),
       // Stop drive, stop intake, raise intake, drive forward
       new InstantCommand(() -> drive.setDriveLocked()),
       new ParallelCommandGroup(
         new InstantCommand(() -> intake.stopIntake()),
         new InstantCommand(() -> air.raiseIntake()),
-        new cmdDrive_DriveStraightByEncoder(drive, 17, -0.5)
+        new cmdDrive_DriveStraightByEncoder(drive, 17, -0.4)
       ),
       // Stop drive, shoot balls, turn robot
       new InstantCommand(() -> drive.setDriveLocked()),

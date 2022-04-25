@@ -17,6 +17,7 @@ import frc.robot.commands.Autonomous_Option5;
 import frc.robot.commands.Autonomous_Option6;
 import frc.robot.commands.Autonomous_Option7;
 import frc.robot.commands.cmdAuto_MoveToShootingPosition;
+import frc.robot.commands.cmdClimb_RaiseToHeight;
 import frc.robot.commands.cmdIntake_Lower;
 import frc.robot.commands.cmdIntake_Raise;
 import frc.robot.commands.cmdShooter_UnJam;
@@ -144,7 +145,11 @@ public class RobotContainer {
 
     driverTwo_LeftBumper
       .whenPressed(new RunCommand(() -> feed.reverseFeed(), feed))
-      .whenReleased(new InstantCommand(() -> feed.stopFeed(), feed));    
+      .whenReleased(new InstantCommand(() -> feed.stopFeed(), feed));   
+      
+    driverTwo_Start
+      .whileHeld(new cmdClimb_RaiseToHeight(climb))
+      .whenReleased(new InstantCommand(() -> climb.stopClimb(), climb));
   }
 
   public Command getAutonomousCommand() {

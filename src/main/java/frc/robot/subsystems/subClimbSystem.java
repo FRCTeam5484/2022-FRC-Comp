@@ -20,7 +20,9 @@ public class subClimbSystem extends SubsystemBase {
   }
 
   @Override
-  public void periodic() {}
+  public void periodic() {
+    //System.out.println(getPosition());
+  }
 
   public void SetMotorSettings() {
     climbMotor.restoreFactoryDefaults();
@@ -43,11 +45,7 @@ public class subClimbSystem extends SubsystemBase {
       // Get climb speed value from driver left Y stick
       double driverCommand = driver.getLeftY() > 0.1 || driver.getLeftY() < -0.1 ? -driver.getLeftY() : 0.0;
       // If climb is up and request is overdriving top limit up, stop motor
-      if(climbIsUp && driverCommand > 0 && getPosition() >= ClimbSystem.ClimbEncoderTopLimitWhenUp){
-        climbMotor.stopMotor();
-      }
-      // If Climb is down and request is overdriving top limit down, stop motor
-      else if(!climbIsUp && driverCommand > 0 && getPosition() >= ClimbSystem.ClimbEncoderTopLimit){
+      if(!climbIsUp && driverCommand > 0 && getPosition() >= ClimbSystem.ClimbEncoderTopLimit){
         climbMotor.stopMotor();
       }
       // If request is overdriving going down, stop motor
@@ -69,6 +67,10 @@ public class subClimbSystem extends SubsystemBase {
     time.start();
     driver.setRumble(RumbleType.kLeftRumble, 1);
     if(time.get() > secs) { driver.setRumble(RumbleType.kLeftRumble, 0); }
+  }
+
+  public void AutoClimb(double value){
+    climbMotor.set(value);
   }
 
   public void setPullClimbDown(){

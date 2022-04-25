@@ -25,13 +25,13 @@ public class Autonomous_Option3 extends SequentialCommandGroup {
       new ParallelCommandGroup(
         new InstantCommand(() -> intake.stopIntake()),
         new InstantCommand(() -> air.raiseIntake()),
-        new cmdDrive_DriveStraightByEncoder(drive, 27, -0.5)
+        new cmdDrive_DriveStraightByEncoder(drive, 24, -0.5)
       ),
       // Stop drive, shoot balls
       new InstantCommand(() -> drive.setDriveLocked()),
       new cmdShooter_AutoShootHighGoal(drive, lime, shooter, feed, 4),
       // Leave loading zone
-      new cmdDrive_DriveStraightByEncoder(drive, 30, 0.7),
+      new cmdDrive_DriveStraightByEncoder(drive, 20, 0.7),
       new InstantCommand(() -> drive.setDriveLocked())
     );
   }

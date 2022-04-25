@@ -51,7 +51,7 @@ public class subShootSystem extends SubsystemBase {
   }
 
   public void setShooterToHighGoal(){
-    shooterMotor.setVoltage(6.0);
+    shooterMotor.setVoltage(6.25);
   }
 
   public void setShooterToLowGoal(){

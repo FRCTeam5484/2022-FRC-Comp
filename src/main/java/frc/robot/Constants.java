@@ -140,9 +140,14 @@ public final class Constants {
         // Speed
         public final static double ClimbSpeed = 1;
         // Limits
-        public final static int ClimbEncoderTopLimitWhenUp = 144;
+        public final static int ClimbEncoderTopLimitWhenUp = 137;
         public final static int ClimbEncoderTopLimit = 148;
         public final static int ClimbEncoderBottomLimit = -14;
+        // PID Drive Values
+        public static final double ClimbPValue = 0.20;
+        public static final double ClimbIValue = 0;
+        public static final double ClimbDValue = 0;
+        public static final double ClimbToleranceDis = 1;
     }
 
     public final static class PneumaticSystem {
